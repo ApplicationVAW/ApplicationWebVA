@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+
+<class name="agent.Agent" table="AGENT">
+<id name="id" column="id_agent">
+<generator class="increment"></generator>
+</id>
+      <property name="login" column="login_agent" unique="true"></property>
+     <property name="motDePasse" column="mdp_agent"></property>
+     <property name="email" column="email_agent" unique="true"></property>
+ 
+</class>
+</hibernate-mapping>
