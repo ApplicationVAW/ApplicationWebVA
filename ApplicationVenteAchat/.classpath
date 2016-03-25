@@ -1,50 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="F:/lib/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/asm.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/asm-attrs.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/cglib-2.2.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/dom4j.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/ehcache-1.2.3.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/hibernate3.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/hibernate-core.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/javassist-3.9.0.GA.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/jta.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/log4j.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="F:/lib/hibernate/slf4j-simple-1.6.1.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/annotations-api.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/catalina.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/catalina-ant.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/catalina-ha.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/catalina-tribes.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/ecj-4.4.2.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/el-api.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/jasper.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/jasper-el.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat7-websocket.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-api.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-coyote.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-i18n-es.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-i18n-fr.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-i18n-ja.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-jdbc.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/tomcat-util.jar"/>
-	<classpathentry kind="lib" path="F:/cours 2éme themer/Web dynamique/apache-tomcat-7.0.67-windows-x86/apache-tomcat-7.0.67/lib/websocket-api.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate3"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Apache"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
