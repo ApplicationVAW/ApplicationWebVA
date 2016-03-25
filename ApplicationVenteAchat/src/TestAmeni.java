@@ -33,6 +33,7 @@ public class TestAmeni extends HttpServlet {
 		out.println("hello world");
 		out.println("hello world again !");
 		out.println("hello world again :D !");
+		out.println("hello world again :D !");
 	}
 
 	/**
