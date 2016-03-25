@@ -31,6 +31,7 @@ public class TestAmeni extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("hello world");
+		out.println("hello world again !");
 	}
 
 	/**
