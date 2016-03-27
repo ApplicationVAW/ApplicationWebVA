@@ -6,10 +6,10 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
 <hibernate-mapping>
 
 <class name="agent.Agent" table="AGENT">
-<id name="id" column="id_agent">
-<generator class="increment"></generator>
+<id name="login" column="login_agent">
+<generator class="uuid"></generator>
 </id>
-      <property name="login" column="login_agent" unique="true"></property>
+      
      <property name="motDePasse" column="mdp_agent"></property>
      <property name="email" column="email_agent" unique="true"></property>
  

@@ -71,15 +71,26 @@ public class Agent {
 		session.beginTransaction();
 		
 		Agent agent = new Agent();
-		agent = (Agent)session.load(Agent.class, login);
+		
+		//ici je dois utiliser .get() au lieu de .load()
+		agent = (Agent)session.get(Agent.class, login);
 		
 		//comparaison des donné saisie
+		
+		if(agent == null){
+			//pas d'agent avec le login saisie dans la base
+			authentif = false ;
+		}
+		else {
+			// l'agent correspondant au login est trouvé
+			// verification avec le mot de pase saisie
 		
 		if (agent.getMotDePasse().equals(motdepasse)){
 			authentif= true ;
 		}
 		else {
 			authentif=false ;
+		}
 		}
 		
 		session.getTransaction().commit();
