@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="produit.Produit" table="PRODUIT">
+      <meta attribute="class-description">
+        Class contains products
+      </meta>
+      <id name="codeProduit" column="CODE_PRODUIT">
+         <generator class="native"/>
+      </id>
+      <property name="nom" column="NOM" />
+      <property name="description" column="DESCRIPTION" />
+      <property name="prix" column="PRIX" />
+   </class>
+</hibernate-mapping>

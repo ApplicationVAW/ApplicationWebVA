@@ -1,5 +1,4 @@
 package agent;
-
 import org.hibernate.Session;
 
 import util.HibernateUtil;
@@ -98,6 +97,6 @@ public class Agent {
 		return authentif ;
 	}
 	
-
+	
 	
 }
