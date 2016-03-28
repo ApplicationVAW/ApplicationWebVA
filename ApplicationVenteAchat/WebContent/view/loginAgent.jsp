@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/loginStyle.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/view/css/loginStyle.css" rel="stylesheet">
 
 <title>Authentification</title>
 </head>

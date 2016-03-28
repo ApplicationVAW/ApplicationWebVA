@@ -9,7 +9,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
 <id name="login" column="login_agent">
 <generator class="uuid"></generator>
 </id>
-      
+     
      <property name="motDePasse" column="mdp_agent"></property>
      <property name="email" column="email_agent" unique="true"></property>
  

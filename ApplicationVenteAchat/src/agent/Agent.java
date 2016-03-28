@@ -97,6 +97,12 @@ public class Agent {
 		return authentif ;
 	}
 	
+	public void ajouterAgent(Agent ag){
+		Session session = HibernateUtil.getSession().getCurrentSession();
+		session.beginTransaction();
+		session.save(ag);
+		session.getTransaction().commit();
+	}
 	
 	
 }

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import agent.Agent;
 import net.sf.cglib.proxy.Dispatcher;
@@ -62,7 +63,8 @@ public class Servlet extends HttpServlet {
 	    }
 		else {
 			//le cas ou les données soont conforme
-			
+			//HttpSession session = request.getSession();
+			//session.setAttribute("username", agent.getLogin());
 			RequestDispatcher disp = request.getRequestDispatcher("/view/accueil.jsp");
 		    disp.forward(request, response);
 		}

@@ -1,0 +1,75 @@
+#menu{
+    width:1140px;
+    height: 51px;
+    clear:both;
+    background-color: #23282e;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    margin: 0px 0px 0px;
+
+}
+#menu ul{
+    font-family: 'Exo 2', sans-serif;
+    list-style:none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:block;
+    float: left;
+    width: auto;
+}
+#menu ul li{
+    font-family: 'Exo 2', sans-serif;
+    list-style:none;
+    display:inline;
+    width:auto;
+    height:50px;
+    line-height:42px;
+    font-size:18px;
+}
+#menu ul li a{
+    font-family: 'Exo 2', sans-serif;
+    font-size: 18px;
+    height: auto;
+    width: auto;
+    float:next;
+    text-decoration: none;
+    color:#fff;
+    padding-left: 40px;
+    padding-right: 10px;
+
+
+}
+#menu ul li a:hover{
+    height:auto;
+    width: auto;
+    text-decoration:none;
+    color: #fff;
+}
+#menu ul li a.current{
+    height:auto;
+    width: auto;
+    text-decoration:none;
+    color: #fff;
+}
+
+
+
+#menu ul li:nth-of-type(2){
+
+
+    float: start;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    margin-right: 150px;
+
+}
+
+
+#menu ul li:nth-of-type(1){
+
+    background:url(../image/logout.png) no-repeat;
+    float: start;
+    padding-top: 13px;
+    padding-bottom: 20px;
+    margin-left: 1000px;
+}
