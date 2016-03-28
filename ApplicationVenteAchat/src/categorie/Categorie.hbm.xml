@@ -14,9 +14,12 @@
       <property name="titre" column="TITRE" />
       <property name="description" column="DESCRIPTION" />
       <property name="dateAjout" column="DATE_Ajout" />
-      <set name="produits" table="CAT_PROD">
-      <key column="CODE_CATEGORIE"></key>
-      <many-to-many class="produit.Produit" column="CODE_PRODUIT"></many-to-many>
-      </set>   
+       <set name="produits" table="PRODUIT"
+                inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="CODE_CATEGORIE" not-null="true" />
+            </key>
+            <one-to-many class="produit.Produit" />
+        </set>   
    </class>
 </hibernate-mapping>

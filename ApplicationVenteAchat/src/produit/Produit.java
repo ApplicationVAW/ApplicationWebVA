@@ -1,7 +1,7 @@
 package produit;
-
 import java.util.List;
 import org.hibernate.Session;
+import categorie.Categorie;
 import util.HibernateUtil;
 
 public class Produit {
@@ -9,7 +9,14 @@ private Long codeProduit;
 private String nom;
 private String description;
 private Double prix;
+private Categorie categorie;
 
+public Categorie getCategorie() {
+	return categorie;
+}
+public void setCategorie(Categorie categorie) {
+	this.categorie = categorie;
+}
          // constructeurs
 public Produit() {}
 public Produit(String nom, String description, Double prix) {
@@ -46,10 +53,11 @@ public void setPrix(Double prix) {
 
        // methodes de mappage 
 
-// ajouter un produit à la base 
-public void addProduit(Produit p){
+// ajouter un produit 
+public void addProduit(Produit p, Categorie c){
 	Session session = HibernateUtil.getSession().getCurrentSession();
 	session.beginTransaction();
+	p.setCategorie(c);
 	session.save(p);
 	session.getTransaction().commit();
 }
@@ -62,21 +70,15 @@ public Produit getProduit(Long codeP){
 	return p;
 }
 
-//retourner tous les produits
-public List<Produit> getAllProduit(){
-	Session session = HibernateUtil.getSession().getCurrentSession();
-	session.beginTransaction();
-	List<Produit> listProd = session.createQuery("from Produit").list();
-	return listProd;	
-}
 //modifier un produit 
-public void updateProduit(Long codeP,String newNom, String newDesc, Double newPrix){
+public void updateProduit(Long codeP,String newNom, String newDesc, Double newPrix, Categorie c){
 	Session session = HibernateUtil.getSession().getCurrentSession();
 	session.beginTransaction();
 	Produit oldP = (Produit) session.load(Produit.class, codeP);
 	oldP.setNom(newNom);
 	oldP.setDescription(newDesc);
 	oldP.setPrix(newPrix);
+	oldP.setCategorie(c);
 	session.update(oldP);
 	session.getTransaction().commit();
 }
@@ -84,10 +86,16 @@ public void updateProduit(Long codeP,String newNom, String newDesc, Double newPr
 public void deleteProduit(Long idP){
 	Session session = HibernateUtil.getSession().getCurrentSession();
 	session.beginTransaction();
-	Produit oldP = (Produit) session.load(Produit.class, idP);
-	session.delete(oldP);
+	Produit p = (Produit) session.load(Produit.class, idP);
+	session.delete(p);
 	session.getTransaction().commit();
-		
+}
+//retourner tous les produits
+public List<Produit> getAllProduit(){
+	Session session = HibernateUtil.getSession().getCurrentSession();
+	session.beginTransaction();
+	List<Produit> listProd = session.createQuery("from Produit").list();
+	return listProd;	
 }
 
 }

@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.hibernate.Session;
+
 import produit.Produit;
 import util.HibernateUtil;
 
@@ -19,13 +20,11 @@ public class Categorie {
 	
 	public Categorie() {}
 
-	public Categorie(String nom, String description, Date dateAjout,
-			Set<Produit> produits) {
+	public Categorie(String nom, String description, Date dateAjout) {
 		super();
 		this.nom = nom;
 		this.description = description;
 		this.dateAjout = dateAjout;
-		this.produits = produits;
 	}
 	
 	//getters and setters
@@ -80,17 +79,6 @@ public class Categorie {
 		session.getTransaction().commit();
 	}
 
-//ajouter un produit a une categorie	
-	public void addProduitToCategorie(Long codeP,Long codeC){
-		Session session = HibernateUtil.getSession().getCurrentSession();
-		session.beginTransaction();
-		Produit p = (Produit) session.load(Produit.class, codeP);
-		Categorie c = (Categorie) session.load(Categorie.class, codeC);
-		c.getProduits().add(p);
-		session.getTransaction().commit();
-		
-	}
-
 //retourner une categorie	
 	public Categorie getCategorie(Long codeC){
 		Session session = HibernateUtil.getSession().getCurrentSession();
@@ -106,6 +94,23 @@ public class Categorie {
 		List<Categorie> listCateg = session.createQuery("from Categorie").list();
 		return listCateg;	
 	}
-	
-		
+//modifier une categorie
+	public void updateCategorie(Long codeC,String newNom, String newDesc){
+		Session session = HibernateUtil.getSession().getCurrentSession();
+		session.beginTransaction();
+		Categorie oldC = (Categorie) session.load(Categorie.class, codeC);
+		oldC.setNom(newNom);
+		oldC.setDescription(newDesc);
+		oldC.setDateAjout(new Date());
+		session.update(oldC);
+		session.getTransaction().commit();
+	}
+//supprimer une categorie	
+	public void deleteCategorie(Long idC){
+		Session session = HibernateUtil.getSession().getCurrentSession();
+		session.beginTransaction();
+		Categorie c = (Categorie) session.load(Categorie.class, idC);
+		session.delete(c);
+		session.getTransaction().commit();
+	}	
 }
