@@ -11,7 +11,7 @@
       <id name="codeCategorie" column="CODE_CATEGORIE">
          <generator class="native"/>
       </id>
-      <property name="titre" column="TITRE" />
+      <property name="nom" column="NOM" />
       <property name="description" column="DESCRIPTION" />
       <property name="dateAjout" column="DATE_Ajout" />
        <set name="produits" table="PRODUIT"
