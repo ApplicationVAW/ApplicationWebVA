@@ -15,6 +15,7 @@ public class Client {
 	private long codeClient ; 
 	private String nom ;
 	private Long cin ;
+	private Long tel;
 	private String prenom ;
 	private String email ;
 	private String adresse ;
@@ -66,6 +67,18 @@ public class Client {
 	public void setCodePostale(long codePostale) {
 		this.codePostale = codePostale;
 	}
+	public Long getCin() {
+		return cin;
+	}
+	public void setCin(Long cin) {
+		this.cin = cin;
+	}
+	public Long getTel() {
+		return tel;
+	}
+	public void setTel(Long tel) {
+		this.tel = tel;
+	}
 	public Set<Commande> getCommandes() {
 		return commandes;
 	}
@@ -74,26 +87,19 @@ public class Client {
 	}
 	
 	//constructeur avec parametre
-	
-	public Client(String nom, String prenom, Long cin,  String email, String adresse, String ville, long codePostale) {
+	public Client(String nom, Long cin, Long tel, String prenom, String email, String adresse, String ville,
+			long codePostale) {
 		super();
 		this.nom = nom;
+		this.cin = cin;
+		this.tel = tel;
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePostale = codePostale;
-		this.cin = cin ;
 	}
-	
 	//constructeur sans parametre
-	
-	public Long getCin() {
-		return cin;
-	}
-	public void setCin(Long cin) {
-		this.cin = cin;
-	}
 	public Client() {
 		super();
 	}
@@ -121,7 +127,7 @@ public class Client {
 	
 	//modification de client 
 	
-	public void modifierClient(long code , String nom, String prenom, String email, String adresse, String ville, long codePostale){
+	public void modifierClient(long code , String nom, String prenom, String email, String adresse, String ville, long codePostale, Long tel, Long cin ){
 		Session session = HibernateUtil.getSession().getCurrentSession();
 		session.beginTransaction();
 		Client c = (Client)session.get(Client.class , code);
@@ -130,6 +136,8 @@ public class Client {
 		c.setVille(ville);
 		c.setEmail(email);
 		c.setCodePostale(codePostale);
+		c.setCin(cin);
+		c.setTel(tel);
 		session.update(c);
 		session.getTransaction().commit();
 		

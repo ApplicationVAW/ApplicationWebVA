@@ -4,21 +4,21 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
  <hibernate-mapping>
-   <class name="client.Client" table="client">
+   <class name="client.Client" table="CLIENT">
    <id name="codeClient" column="code_client">
      <generator class="increment"></generator>
    </id>
    
-   <property name="nom" column="nom_client"></property>
-   <property name="prenom" column="prenom_client"></property>
-   <property name="cin" column="cin_client" unique="true"></property>
-   <property name="email" column="email_client" unique="true"></property>
-   <property name="adresse" column="adresse_client"></property>
-   <property name="ville" column="ville_client"></property>
-   <property name="codePostale" column="code_postale_client"></property>
+   <property name="nom" ></property>
+   <property name="prenom" ></property>
+   <property name="cin"  unique="true"></property>
+   <property name="email"  unique="true"></property>
+   <property name="adresse" ></property>
+   <property name="ville" ></property>
+   <property name="codePostale" ></property>
+    <property name="tel" ></property>
    
-   
-   <set name="commandes" table="commande" inverse="true" lazy="true" fetch="select" cascade="all">
+   <set name="commandes" table="COMMANDE" inverse="true" lazy="true" fetch="select" cascade="all">
    <key>
    <column name="code_client" not-null="true"></column>
    </key>
