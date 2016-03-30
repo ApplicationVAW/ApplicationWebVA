@@ -23,7 +23,7 @@ public class Client {
 	private long codePostale ;
 	private Set<Commande> commandes = new HashSet<Commande>();
 	
-	//getters et setters
+	//getters et  setters
 	
 	public long getCodeClient() {
 		return codeClient;

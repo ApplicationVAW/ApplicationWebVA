@@ -16,7 +16,7 @@
    <property name="adresse" ></property>
    <property name="ville" ></property>
    <property name="codePostale" ></property>
-    <property name="tel" ></property>
+    <property name="tel"></property>
    
    <set name="commandes" table="COMMANDE" inverse="true" lazy="true" fetch="select" cascade="all">
    <key>
