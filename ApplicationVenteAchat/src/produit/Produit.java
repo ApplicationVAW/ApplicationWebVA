@@ -82,6 +82,7 @@ public void updateProduit(Long codeP,String newNom, String newDesc, Double newPr
 	session.update(oldP);
 	session.getTransaction().commit();
 }
+
 //supprimer un produit 
 public void deleteProduit(Long idP){
 	Session session = HibernateUtil.getSession().getCurrentSession();
@@ -90,6 +91,7 @@ public void deleteProduit(Long idP){
 	session.delete(p);
 	session.getTransaction().commit();
 }
+
 //retourner tous les produits
 public List<Produit> getAllProduit(){
 	Session session = HibernateUtil.getSession().getCurrentSession();
@@ -97,5 +99,7 @@ public List<Produit> getAllProduit(){
 	List<Produit> listProd = session.createQuery("from Produit").list();
 	return listProd;	
 }
+
+
 
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+ <hibernate-mapping>
+   <class name="client.Client" table="client">
+   <id name="codeClient" column="code_client">
+     <generator class="increment"></generator>
+   </id>
+   
+   <property name="nom" column="nom_client"></property>
+   <property name="prenom" column="prenom_client"></property>
+   <property name="email" column="email_client"></property>
+   <property name="adresse" column="adresse_client"></property>
+   <property name="ville" column="ville_client"></property>
+   <property name="codePostale" column="code_postale_client"></property>
+   
+   
+   <set name="commandes" table="commande" inverse="true" lazy="true" fetch="select" cascade="all">
+   <key>
+   <column name="code_client" not-null="true"></column>
+   </key>
+   <one-to-many class="commande.Commande"/>
+   </set>
+   
+   </class>
+ 
+ </hibernate-mapping>
