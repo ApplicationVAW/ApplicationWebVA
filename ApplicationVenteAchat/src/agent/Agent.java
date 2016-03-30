@@ -1,4 +1,7 @@
 package agent;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import util.HibernateUtil;
@@ -72,7 +75,13 @@ public class Agent {
 		Agent agent = new Agent();
 		
 		//ici je dois utiliser .get() au lieu de .load()
-		agent = (Agent)session.get(Agent.class, login);
+		//agent = (Agent)session.get(Agent.class, login);
+		
+		Query query = session.createQuery("from AGENT where login_agent = :logAgent");
+		query.setParameter("logAgent", login);
+		List<Agent> liste = query.list();
+		agent = (Agent)liste.get(0);
+		
 		
 		//comparaison des donné saisie
 		
