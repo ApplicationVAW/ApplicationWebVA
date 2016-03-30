@@ -11,7 +11,8 @@
    
    <property name="nom" column="nom_client"></property>
    <property name="prenom" column="prenom_client"></property>
-   <property name="email" column="email_client"></property>
+   <property name="cin" column="cin_client" unique="true"></property>
+   <property name="email" column="email_client" unique="true"></property>
    <property name="adresse" column="adresse_client"></property>
    <property name="ville" column="ville_client"></property>
    <property name="codePostale" column="code_postale_client"></property>

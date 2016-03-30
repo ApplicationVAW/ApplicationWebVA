@@ -14,6 +14,7 @@ public class Client {
 	
 	private long codeClient ; 
 	private String nom ;
+	private Long cin ;
 	private String prenom ;
 	private String email ;
 	private String adresse ;
@@ -74,7 +75,7 @@ public class Client {
 	
 	//constructeur avec parametre
 	
-	public Client(String nom, String prenom, String email, String adresse, String ville, long codePostale) {
+	public Client(String nom, String prenom, Long cin,  String email, String adresse, String ville, long codePostale) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -82,10 +83,17 @@ public class Client {
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePostale = codePostale;
+		this.cin = cin ;
 	}
 	
 	//constructeur sans parametre
 	
+	public Long getCin() {
+		return cin;
+	}
+	public void setCin(Long cin) {
+		this.cin = cin;
+	}
 	public Client() {
 		super();
 	}
