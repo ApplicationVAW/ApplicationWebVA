@@ -17,6 +17,14 @@
     <link href="${pageContext.request.contextPath}/view/css/animate.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/custom1.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/green.css" rel="stylesheet">
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.bootstrap-growl.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.6/bootstrap-growl.min.js"></script>
+           
+    
+
 
 
 
@@ -27,6 +35,72 @@
 
 </head>
 <body>
+           
+             
+
+<% int t = 0 ;
+ 
+ try{
+	 String res = request.getParameter("res");
+	 int rest = Integer.parseInt(res);
+	 if(rest==1){
+		 //client ajouté
+		 %>
+		 
+		 <script type="text/javascript">
+
+		 $(document).ready(function () {
+			    $.growl({
+			        message: 'le nouveau client a été ajouté avec succée',
+			     
+			    }, {
+			    	type: 'success',
+			        placement: {
+			            from: "bottom",
+			            align: "left"
+			        },
+			        delay: 1000
+			    });
+			});
+
+        </script>
+		 
+		 <%
+	 }
+	 else{
+		 // client non ajouté
+		 %>
+		 <script type="text/javascript">
+
+		 $(document).ready(function () {
+			    $.growl({
+			    	icon: 'glyphicon glyphicon-warning-sign',
+			        message: 'le client existe deja !! verifier les données saisies',
+			      
+			    }, {
+			    	type: 'danger',
+			        placement: {
+			            from: "bottom",
+			            align: "left"
+			        },
+			        delay: 1000
+			    });
+			});
+
+        </script>
+		 
+		
+		<%  
+	 }
+ } catch(Exception e){
+	 %>
+	 
+	 
+	 <% 
+ }
+%>
+
+
 <div class="nav-side-menu">
     <div class="brand">Nom du societé</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -100,7 +174,7 @@
 </div>
 
 
-
+<!-- hedhi hia ell partie elli dima tetbaddel -->
 
 
 
@@ -128,9 +202,12 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
+            
+            <!-- formulaire -->
+            
             <div class="x_content">
 
-                <form class="form-horizontal form-label-left" novalidate="">
+                <form class="form-horizontal form-label-left" novalidate="" method="post"  action="/ApplicationVenteAchat/AjouterClient">
 
 
                     <span class="section"><br></span>
@@ -139,14 +216,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Nom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name"  required="required" type="text">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Prenom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="prenom" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name"  required="required" type="text">
+                            <input id="prenom" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="prenom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
@@ -167,7 +244,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">CIN <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" id="number" name="number" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
+                            <input type="number" id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -177,21 +254,21 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="tel" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                            <input type="tel" id="telephone" name="telephone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Adresse <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="textarea" required="required" name="adresse" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Ville <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="ville" required="required" name="textarea" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="ville" required="required" name="ville" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -199,13 +276,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Code postale <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" id="codePostale" name="number" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
+                            <input type="number" id="codePostale" name="codePostale" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                            <button type="submit" class="btn btn-primary">Annuler</button>
+                            <button type="reset" class="btn btn-primary">Annuler</button>
                             <button id="send" type="submit" class="btn btn-success">enregistrer</button>
                         </div>
                     </div>
@@ -217,15 +294,16 @@
 
 
 </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
         <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
 
 
-        <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+      
         <script src="${pageContext.request.contextPath}/view/js/validator.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/custom.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/icheck.min.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/pace.min.js"></script>
+  
 
 
 
