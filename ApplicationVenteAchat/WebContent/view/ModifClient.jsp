@@ -21,7 +21,7 @@
 
 <% int a = 0;
  try{
-	 String var = (String)request.getAttribute("variable");
+	 String var = (String)request.getAttribute("res");
 	 int res = Integer.parseInt(var);
 	 if(res==1){
 		 %>
@@ -30,7 +30,7 @@
 
 		 $(document).ready(function () {
 			    $.growl({
-			        message: 'la suppression du client est effectuée avec succée .',
+			        message: 'la modification du client est effectuée avec succée .',
 			     
 			    }, {
 			    	type: 'success',
@@ -172,13 +172,13 @@
                         </form>
                     </div>
                     <div class="tab-pane" id="nomprenom">
-                        <form method="post" action="/ApplicationVenteAchat/SuppressionClient" >
+                        <form method="post" action="/ApplicationVenteAchat/RechercheClient" >
                             <fieldset>
                                 <div class="form-group has-feedback">
                                     <br>
                                     <input type="text" class="span5" placeholder="nom" name="nom">
                                     <input type="text" class="span5" placeholder="prenom" name="prenom">
-                                    <input type="hidden"  name="page" value="/view/SupprClient.jsp">
+                                    <input type="hidden"  name="page" value="/view/ModifClient.jsp">
 
 
                                 </div>
@@ -235,7 +235,7 @@
                                  <td><%client.getCin(); %></td>
                                  <td><% client.getVille(); %></td>
                                  <td><%client.getCodePostale(); %></td>
-                                 <td><form method="post" action="/ApplicationVenteAchat/SupprClient"><input type="hidden"  value="<%client.getCodeClient(); %>" name="code"><input type="submit" value="supprimer" class="btn btn-danger btn-xs"></form></td>
+                                 <td><form method="post" action="/ApplicationVenteAchat/TrouverClient"><input type="hidden"  value="<%client.getCodeClient(); %>" name="code"><input type="submit" value="modifier" class="btn btn-danger btn-xs"></form></td>
                              </tr>
                         		
                         <% 	}

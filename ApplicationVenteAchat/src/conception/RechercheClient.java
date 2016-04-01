@@ -44,6 +44,7 @@ public class RechercheClient extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String cin = request.getParameter("cin");
+		String page = request.getParameter("page");
 		Client c = new Client();
 		List<Client> res = null;
 		
@@ -90,7 +91,7 @@ public class RechercheClient extends HttpServlet {
 			
 		}
 		
-		RequestDispatcher disp = request.getRequestDispatcher("/view/SupprClient.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher(page);
 		request.setAttribute("resultat", res);
 		disp.forward(request, response);
 		
