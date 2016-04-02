@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="commande.LigneCommande" table="LIGNE_COMMANDE">
+      <meta attribute="class-description">
+        Class contains lignes com
+      </meta>
+      <id name="idLigne" column="ID_LIGNE">
+         <generator class="native"/>
+      </id>
+      <many-to-one name="produit" class="produit.Produit"
+            column="CODE_PRODUIT"/>
+      <property name="qte" column="QTE" />
+      <many-to-one name="commande" class="commande.Commande" fetch="select" update="true">
+            <column name="CODE_COMMANDE" not-null="true" unique="false" />
+        </many-to-one>
+        
+   </class>
+</hibernate-mapping>

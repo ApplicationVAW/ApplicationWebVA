@@ -5,7 +5,7 @@
 
  <hibernate-mapping>
    <class name="client.Client" table="CLIENT">
-   <id name="codeClient" column="code_client">
+   <id name="codeClient" column="CODE_CLIENT">
      <generator class="increment"></generator>
    </id>
    
@@ -20,11 +20,11 @@
    
    <set name="commandes" table="COMMANDE" inverse="true" lazy="true" fetch="select" cascade="all">
    <key>
-   <column name="code_client" not-null="true"></column>
+   <column name="CODE_CLIENT" not-null="true"></column>
    </key>
    <one-to-many class="commande.Commande"/>
    </set>
-   
+ 
    </class>
  
  </hibernate-mapping>

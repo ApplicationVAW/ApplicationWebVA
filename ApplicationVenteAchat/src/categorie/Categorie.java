@@ -113,4 +113,10 @@ public class Categorie {
 		session.delete(c);
 		session.getTransaction().commit();
 	}	
+	
+	//methode show juste pour le test (va etre supprimée ensuite )
+	public void show() {
+	System.out.println(this.nom + " - " + this.description + " - " + this.dateAjout);
+		
+	}
 }

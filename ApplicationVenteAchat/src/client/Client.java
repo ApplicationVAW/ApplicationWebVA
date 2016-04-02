@@ -14,8 +14,8 @@ public class Client {
 	
 	private long codeClient ; 
 	private String nom ;
-	private Long cin ;
-	private Long tel;
+	private long cin ;
+	private long tel;
 	private String prenom ;
 	private String email ;
 	private String adresse ;
@@ -87,7 +87,7 @@ public class Client {
 	}
 	
 	//constructeur avec parametre
-	public Client(String nom, Long cin, Long tel, String prenom, String email, String adresse, String ville,
+	public Client(String nom, long cin, long tel, String prenom, String email, String adresse, String ville,
 			long codePostale) {
 		super();
 		this.nom = nom;

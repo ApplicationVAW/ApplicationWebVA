@@ -15,7 +15,7 @@
       <property name="description" column="DESCRIPTION" />
       <property name="dateAjout" column="DATE_Ajout" />
        <set name="produits" table="PRODUIT"
-                inverse="true" lazy="true" fetch="select" cascade="all">
+                inverse="true"  fetch="select" cascade="all">
             <key>
                 <column name="CODE_CATEGORIE" not-null="true" />
             </key>

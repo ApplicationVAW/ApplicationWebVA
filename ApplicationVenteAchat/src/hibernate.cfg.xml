@@ -15,7 +15,7 @@
      <property name="hibernate.connection.pool_size">1</property>
      <property name="current_session_context_class">thread</property>
      <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-     <property name="hbm2ddl.auto">update</property>
+     <property name="hbm2ddl.auto">create</property>
      
  
      <mapping resource="agent/Agent.hbm.xml"/>
@@ -23,6 +23,7 @@
      <mapping resource="categorie/Categorie.hbm.xml"/>
      <mapping resource="client/Client.hbm.xml"/>
      <mapping resource="commande/Commande.hbm.xml"/>
+     <mapping resource="commande/LigneCommande.hbm.xml"/>
      
   
   </session-factory>

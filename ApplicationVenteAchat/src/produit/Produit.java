@@ -9,23 +9,19 @@ private Long codeProduit;
 private String nom;
 private String description;
 private Double prix;
+private int quantiteStock;
 private Categorie categorie;
 
-public Categorie getCategorie() {
-	return categorie;
-}
-public void setCategorie(Categorie categorie) {
-	this.categorie = categorie;
-}
          // constructeurs
 public Produit() {}
-public Produit(String nom, String description, Double prix) {
+public Produit(String nom, String description, Double prix, int quantiteStock) {
 	this.nom = nom;
 	this.description = description;
 	this.prix = prix;
+	this.quantiteStock = quantiteStock;
 }
 
-        // getters and setters
+// getters and setters
 public Long getCodeProduit() {
 	return codeProduit;
 }
@@ -51,8 +47,21 @@ public void setPrix(Double prix) {
 	this.prix = prix;
 }
 
-       // methodes de mappage 
+public Categorie getCategorie() {
+	return categorie;
+}
+public void setCategorie(Categorie categorie) {
+	this.categorie = categorie;
+}
 
+public int getQuantiteStock() {
+	return quantiteStock;
+}
+public void setQuantiteStock(int quantiteStock) {
+	this.quantiteStock = quantiteStock;
+}
+
+// methodes de mappage 
 // ajouter un produit 
 public void addProduit(Produit p, Categorie c){
 	Session session = HibernateUtil.getSession().getCurrentSession();
@@ -71,13 +80,14 @@ public Produit getProduit(Long codeP){
 }
 
 //modifier un produit 
-public void updateProduit(Long codeP,String newNom, String newDesc, Double newPrix, Categorie c){
+public void updateProduit(Long codeP,String newNom, String newDesc, Double newPrix, int newQteStock, Categorie c){
 	Session session = HibernateUtil.getSession().getCurrentSession();
 	session.beginTransaction();
 	Produit oldP = (Produit) session.load(Produit.class, codeP);
 	oldP.setNom(newNom);
 	oldP.setDescription(newDesc);
 	oldP.setPrix(newPrix);
+	oldP.setQuantiteStock(newQteStock);
 	oldP.setCategorie(c);
 	session.update(oldP);
 	session.getTransaction().commit();
@@ -98,6 +108,11 @@ public List<Produit> getAllProduit(){
 	session.beginTransaction();
 	List<Produit> listProd = session.createQuery("from Produit").list();
 	return listProd;	
+}
+//methode show juste pour le test (va etre supprimée ensuite )
+public void show() {
+System.out.println(this.nom + " - " + this.description + " - " + this.prix + " - " + this.quantiteStock);
+	
 }
 
 

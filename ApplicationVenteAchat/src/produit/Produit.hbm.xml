@@ -14,6 +14,7 @@
       <property name="nom" column="NOM" />
       <property name="description" column="DESCRIPTION" />
       <property name="prix" column="PRIX" />
+      <property name="quantiteStock" column="QUANTITE_STOCK" />
       <many-to-one name="categorie" class="categorie.Categorie" fetch="select" update="true">
             <column name="CODE_CATEGORIE" not-null="true" />
         </many-to-one>

@@ -1,1 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="commande.Commande" table="COMMANDE">
+      <meta attribute="class-description">
+       Class contains commandes
+      </meta>
+      <id name="codeCommande" column="CODE_COMMANDE">
+         <generator class="native"/>
+      </id>
+      <property name="dateCommande" column="DATE_COMMANDE" />
+      
+        <set name="lignes" table="LIGNE_COMMANDE"
+                inverse="true"  fetch="select" cascade="all">
+            <key>
+                <column name="CODE_COMMANDE" not-null="true" />
+            </key>
+            <one-to-many class="commande.LigneCommande" />
+        </set>         
+        <many-to-one name="client" class="client.Client" fetch="select" update="true">
+            <column name="CODE_CLIENT" not-null="true" />
+        </many-to-one> 
+   </class>
+</hibernate-mapping>
