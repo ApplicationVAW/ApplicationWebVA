@@ -211,7 +211,7 @@
 
                <%@ page import="client.Client, java.util.List;" %>
                <% 
-               Client cl = (Client)request.getAttribute("client");
+              // Client cl = (Client)request.getAttribute("client");
                %>
 
                     <span class="section"><br></span>
@@ -220,35 +220,35 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Nom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="name" value="<% cl.getNom(); %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nom"  required="required" type="text">
+                            <input id="name" value="<%= (String)request.getAttribute("nom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Prenom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="prenom" value="<% cl.getPrenom(); %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="prenom"  required="required" type="text">
+                            <input id="prenom" value="<%= (String)request.getAttribute("prenom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="prenom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" value="<% cl.getEmail(); %>" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="email" value="<%= (String)request.getAttribute("email") %>" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" value="<% cl.getEmail(); %> id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="email" value="<%= (String)request.getAttribute("email") %>" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">CIN <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" value="<% cl.getCin(); %> id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
+                            <input type="number" value="<%= (String)request.getAttribute("cin") %>" id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -258,21 +258,21 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="tel" value="<% cl.getTel(); %>  id="telephone" name="telephone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                            <input type="tel" value="<%= (String)request.getAttribute("tel") %>"  id="telephone" name="telephone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Adresse <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" value="<% cl.getAdresse(); %>  id="textarea" required="required" name="adresse" class="form-control col-md-7 col-xs-12">
+                            <input type="text" value="<%= (String)request.getAttribute("adresse") %>"  id="textarea" required="required" name="adresse" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Ville <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text"  value="<% cl.getVille(); %>  id="ville" required="required" name="ville" class="form-control col-md-7 col-xs-12">
+                            <input type="text"  value="<%= (String)request.getAttribute("ville") %>"  id="ville" required="required" name="ville" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -280,8 +280,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Code postale <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number"  value="<% cl.getCodePostale(); %> id="codePostale" name="codePostale" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
-                           <input type="hidden" value="<%cl.getCodeClient(); %>" name="id">
+                            <input type="number"  value="<%= (String)request.getAttribute("codepostale") %>" id="codePostale" name="codePostale" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
+                           <input type="hidden" value="<%= (String)request.getAttribute("id") %>" name="id">
                         </div>
                     </div>
                     <div class="ln_solid"></div>

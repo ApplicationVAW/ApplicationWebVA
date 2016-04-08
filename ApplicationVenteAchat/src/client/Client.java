@@ -1,12 +1,19 @@
 package client;
 import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.annotations.Entity;
 
+import agent.Agent;
 import commande.Commande;
 import util.HibernateUtil;
+
+@Entity 
+
 
 public class Client {
 	
@@ -162,10 +169,24 @@ public class Client {
 		
 		Session session = HibernateUtil.getSession().getCurrentSession();
 		session.beginTransaction();
-		List<Client> liste = session.createQuery("from client").list();
+		List<Client> liste = session.createQuery("from Client").list();
 		session.getTransaction().commit();
 		return liste ;
 	}
+	
+	
+	//retourner tous les client dans la base
+	
+		public Client afficherClientCin(Long C){
+			
+			Session session = HibernateUtil.getSession().getCurrentSession();
+			session.beginTransaction();
+			Query query = session.createQuery("from Client where cin = :c");
+			query.setParameter("c", C);
+			List<Client> liste = query.list();
+			session.getTransaction().commit();
+			return liste.get(0) ;
+		}
 	
 
 }

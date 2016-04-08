@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
+    <link href="/view/css/menu.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/supprime.css" rel="stylesheet">
@@ -52,6 +52,7 @@
  }
 
 %>
+
 
 
 
@@ -163,7 +164,7 @@
 
                                     <br>
                                     <input type="NUMBER" class="span5" placeholder="CN" name="cin"/>
-                                    <input type="hidden"  name="page" value="/view/SupprClient.jsp">
+                                    <input type="hidden"  name="page" value="/view/ModifClient.jsp">
 
                                 </div>
 
@@ -219,30 +220,38 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%@ page import="client.Client, java.util.List;" %>
+                        <%@ page import="client.Client, java.util.*;" %>
                         
-                        <% List<Client> liste = null; 
+                        <% Client client = new Client(); 
                         
-                        try{
-                        	liste = (List)request.getAttribute("resultat");
-                        	for(Client client:liste){
+                       try{
+                        	//client = (Client)request.getAttribute("resultat");
+                        	
+                        		
                         		%>
                         		
                         		
                         	     <tr>
-                                 <td><% client.getNom(); %></td>
-                                 <td><% client.getPrenom(); %></td>
-                                 <td><%client.getCin(); %></td>
-                                 <td><% client.getVille(); %></td>
-                                 <td><%client.getCodePostale(); %></td>
-                                 <td><form method="post" action="/ApplicationVenteAchat/TrouverClient"><input type="hidden"  value="<%client.getCodeClient(); %>" name="code"><input type="submit" value="modifier" class="btn btn-danger btn-xs"></form></td>
+                        	     
+                                 <td><%= (String)request.getAttribute("nom") %></td>
+                                 <td><%= (String)request.getAttribute("prenom")  %></td>
+                                 <td><%= (Long)request.getAttribute("cin")  %></td>
+                                 <td><%= (String)request.getAttribute("ville")  %></td>
+                                 <td><%= (Long)request.getAttribute("codepostale")  %></td>
+                                 <td><form method="post" action="/ApplicationVenteAchat/TrouverClient"><input type="hidden"  value="<%= (Long)request.getAttribute("id")  %>"  name="code"><input type="submit" value="modifier" class="btn btn-danger btn-xs"></form></td>
                              </tr>
                         		
-                        <% 	}
-                        
-                        } catch(Exception e){
-                        	
-                        }
+                        <% 	
+                       } catch(Exception e){
+                    	   %>
+                    	   <tr>
+                        	     
+                                 <td><% System.out.println("test"); %></td>
+                                 <td><% System.out.println("delexepetion"); %></td>
+                                 </tr>
+                                 <% 
+                       }
+                       
                         %>
                     </tbody>
                         </table>

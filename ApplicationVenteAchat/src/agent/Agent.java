@@ -77,21 +77,22 @@ public class Agent {
 		//ici je dois utiliser .get() au lieu de .load()
 		//agent = (Agent)session.get(Agent.class, login);
 		
-		Query query = session.createQuery("from AGENT where login_agent = :logAgent");
+		Query query = session.createQuery("from Agent where login_agent = :logAgent");
 		query.setParameter("logAgent", login);
 		List<Agent> liste = query.list();
-		agent = (Agent)liste.get(0);
+		
 		
 		
 		//comparaison des donné saisie
 		
-		if(agent == null){
+		if(liste.isEmpty()){
 			//pas d'agent avec le login saisie dans la base
 			authentif = false ;
 		}
 		else {
 			// l'agent correspondant au login est trouvé
 			// verification avec le mot de pase saisie
+			agent = (Agent)liste.get(0);
 		
 		if (agent.getMotDePasse().equals(motdepasse)){
 			authentif= true ;

@@ -1,6 +1,7 @@
 package conception;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,9 +46,22 @@ public class TrouverClient extends HttpServlet {
 		 Client cl = new Client();
 		 Client res = new Client();
 		 res = cl.afficherClient(codeClient);
+		// PrintWriter write = response.getWriter();
+		 
+		 
 		 RequestDispatcher disp =  request.getRequestDispatcher("/view/m.jsp");
-		 request.setAttribute("client", res);
-		 disp.forward(request, response);
+		 //request.setAttribute("client", res);
+		    request.setAttribute("nom" , res.getNom());
+			request.setAttribute("prenom" , res.getPrenom());
+			request.setAttribute("cin" , res.getCin());
+			request.setAttribute("email" , res.getEmail());
+			request.setAttribute("ville" , res.getVille());
+			request.setAttribute("tel" , res.getTel());
+			request.setAttribute("codepostale" , res.getCodePostale());
+			request.setAttribute("id" , res.getCodeClient());
+			request.setAttribute("adresse" , res.getAdresse());
+			
+		 disp.forward(request, response);  
 		
 	}
 
