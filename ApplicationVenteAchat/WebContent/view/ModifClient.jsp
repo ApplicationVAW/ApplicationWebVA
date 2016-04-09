@@ -4,15 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>modifier cordonnée client</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/view/css/menu.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/supprime.css" rel="stylesheet">
+     <link href="${pageContext.request.contextPath}/view/css/green.css" rel="stylesheet">
     
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+    
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.bootstrap-growl.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.6/bootstrap-growl.min.js"></script>
   
 </head>
 
@@ -20,17 +25,18 @@
 
 
 <% int a = 0;
- try{
-	 String var = (String)request.getAttribute("res");
-	 int res = Integer.parseInt(var);
+try{
+	 int res = (int)request.getAttribute("res");
+	// int rest = Integer.parseInt(res);
 	 if(res==1){
+		 //client ajouté
 		 %>
 		 
 		 <script type="text/javascript">
 
 		 $(document).ready(function () {
 			    $.growl({
-			        message: 'la modification du client est effectuée avec succée .',
+			        message: 'le nouveau client a été modifié avec succée',
 			     
 			    }, {
 			    	type: 'success',
@@ -38,19 +44,67 @@
 			            from: "bottom",
 			            align: "left"
 			        },
-			        delay: 1000
+			        delay: 10000
 			    });
 			});
 
-        </script>
-		 <% 
+       </script>
+		 
+		 <%
 	 }
+	 else if(res == 3){%>
 	 
-	 
- }catch(Exception e){
-	 
- }
+	 	 <script type="text/javascript">
 
+		 $(document).ready(function () {
+			    $.growl({
+			        message: 'Client non trouvé !! verifier le CIN ou le nom saisie ',
+			     
+			    }, {
+			    	type: 'danger',
+			        placement: {
+			            from: "bottom",
+			            align: "left"
+			        },
+			        delay: 10000
+			    });
+			});
+
+       </script>
+		 
+	<% 	 
+	 }
+	 else{
+		 // client non ajouté
+		 %>
+		 <script type="text/javascript">
+
+		 $(document).ready(function () {
+			    $.growl({
+			    	icon: 'glyphicon glyphicon-warning-sign',
+			        message: 'le client existe deja !! verifier les données saisies',
+			      
+			    }, {
+			    	type: 'danger',
+			        placement: {
+			            from: "bottom",
+			            align: "left"
+			        },
+			        delay: 10000
+			    });
+			});
+
+       </script>
+		 
+		
+		<%  
+	 }
+} catch(Exception e){
+	 %>
+	 
+	 
+	 <% 
+}
 %>
 
 
@@ -72,7 +126,7 @@
                 </a>
             </li>
 
-            <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+            <li  data-toggle="collapse" data-target="#products" class="collapsed">
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
@@ -95,14 +149,14 @@
             </ul>
 
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
+            <li data-toggle="collapse" data-target="#service" class="collapsed active">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
-                <li>Ajouter client</li>
-                <li>Supprimer client</li>
-                <li>Modifier client</li>
-                <li>Chercher client</li>
+            <ul class="sub-menu" id="service">
+                <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
+                <li class="active"><a href="#">Modifier client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
             </ul>
 
 
@@ -263,8 +317,7 @@
     
     
 </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+   <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
+ 
 </body>
 </html>

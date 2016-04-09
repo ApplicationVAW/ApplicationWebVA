@@ -50,9 +50,6 @@ public class RechercheClient extends HttpServlet {
 		String cin = request.getParameter("cin");
 		String page = request.getParameter("page");
 		
-		
-		PrintWriter write = response.getWriter();
-		write.println("<html><head><title>essai11</title></head><body>");
 		write.println(page);
 		write.println(cin);
 		
@@ -134,9 +131,9 @@ public class RechercheClient extends HttpServlet {
     	      write.println(pr1.getCodePostale());
 		}*/
 		Long cinClient = Long.parseLong(cin);
+		try{
 		Client cli = c.afficherClientCin(cinClient);
-		//write.println(cli.getNom());
-		//write.println(cli.getPrenom());
+		
 		
 		
 		
@@ -148,6 +145,13 @@ public class RechercheClient extends HttpServlet {
 		request.setAttribute("codepostale" , cli.getCodePostale());
 		request.setAttribute("id" , cli.getCodeClient());
 		disp.forward(request, response);
+		}
+		catch(Exception e){
+			RequestDispatcher disp = request.getRequestDispatcher(page);
+			int i = 3;
+			request.setAttribute("res", i);
+			disp.forward(request, response);
+		}
 		
 
 	}

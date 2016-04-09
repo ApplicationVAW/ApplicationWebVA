@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Supprimer client</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +13,10 @@
     
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.bootstrap-growl.min.js"></script>
+     <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.6/bootstrap-growl.min.js"></script>
   
 </head>
 
@@ -21,7 +25,7 @@
 
 <% int a = 0;
  try{
-	 String var = (String)request.getAttribute("variable");
+	 String var = (String)request.getAttribute("res");
 	 int res = Integer.parseInt(var);
 	 if(res==1){
 		 %>
@@ -38,11 +42,34 @@
 			            from: "bottom",
 			            align: "left"
 			        },
-			        delay: 1000
+			        delay: 3000
 			    });
 			});
 
         </script>
+		 <% 
+	 }
+	 else {
+		 %>
+		 
+		 	 <script type="text/javascript">
+
+		 $(document).ready(function () {
+			    $.growl({
+			        message: 'Client non trouvé !! verifier le CIN ou le nom saisi',
+			     
+			    }, {
+			    	type: 'danger',
+			        placement: {
+			            from: "bottom",
+			            align: "left"
+			        },
+			        delay: 10000
+			    });
+			});
+
+       </script>
+		 
 		 <% 
 	 }
 	 
@@ -71,7 +98,7 @@
                 </a>
             </li>
 
-            <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+            <li  data-toggle="collapse" data-target="#products" class="collapsed">
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
@@ -94,14 +121,14 @@
             </ul>
 
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
+            <li data-toggle="collapse" data-target="#service" class="collapsed active">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
-                <li>Ajouter client</li>
-                <li>Supprimer client</li>
-                <li>Modifier client</li>
-                <li>Chercher client</li>
+            <ul class="sub-menu" id="service">
+                <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
             </ul>
 
 
@@ -172,7 +199,7 @@
                         </form>
                     </div>
                     <div class="tab-pane" id="nomprenom">
-                        <form method="post" action="/ApplicationVenteAchat/SuppressionClient" >
+                        <form method="post" action="/ApplicationVenteAchat/RechercheClient" >
                             <fieldset>
                                 <div class="form-group has-feedback">
                                     <br>
@@ -221,24 +248,24 @@
                         <tbody>
                         <%@ page import="client.Client, java.util.List;" %>
                         
-                        <% List<Client> liste = null; 
+                        <% Client client = new Client();
                         
                         try{
-                        	liste = (List)request.getAttribute("resultat");
-                        	for(Client client:liste){
+                        	
+                        	
                         		%>
                         		
                         		
                         	     <tr>
-                                 <td><% client.getNom(); %></td>
-                                 <td><% client.getPrenom(); %></td>
-                                 <td><%client.getCin(); %></td>
-                                 <td><% client.getVille(); %></td>
-                                 <td><%client.getCodePostale(); %></td>
-                                 <td><form method="post" action="/ApplicationVenteAchat/SupprClient"><input type="hidden"  value="<%client.getCodeClient(); %>" name="code"><input type="submit" value="supprimer" class="btn btn-danger btn-xs"></form></td>
+                                 <td><%= (String)request.getAttribute("nom") %></td>
+                                 <td><%= (String)request.getAttribute("prenom")  %></td>
+                                 <td><%= (Long)request.getAttribute("cin")  %></td>
+                                 <td><%= (String)request.getAttribute("ville")  %></td>
+                                 <td><%= (Long)request.getAttribute("codepostale")  %></td>
+                                 <td><form method="post" action="/ApplicationVenteAchat/SupprClient"><input type="hidden"  value="<%= (Long)request.getAttribute("id")  %>" name="code"><input type="submit" value="supprimer" class="btn btn-danger btn-xs"></form></td>
                              </tr>
                         		
-                        <% 	}
+                        <% 	
                         
                         } catch(Exception e){
                         	

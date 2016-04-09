@@ -140,11 +140,11 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed active">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
-                <li><a href="active">Ajouter client</a></li>
-                <li><a href="#">Supprimer client</a></li>
-                <li><a href="#">Modifier client</a></li>
-                <li><a href="#">Chercher client</a></li>
+            <ul class="sub-menu" id="service">
+                <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp"">Supprimer client</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/view/ModifClient.jsp"">Modifier client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
             </ul>
 
 
@@ -179,11 +179,7 @@
 
 
 <div class="partieDroite">
-    <div id="menu">
-        <ul>
-            <li><a class="current" href="home.html" title="fermer"></a></li>
-        </ul>
-    </div>
+  
 
 
 
@@ -248,7 +244,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">CIN <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" value="<%= (String)request.getAttribute("cin") %>" id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
+                            <input type="number" value="<%= (Long)request.getAttribute("cin") %>" id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 
@@ -258,7 +254,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="tel" value="<%= (String)request.getAttribute("tel") %>"  id="telephone" name="telephone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                            <input type="tel" value="<%= (Long)request.getAttribute("tel") %>"  id="telephone" name="telephone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="item form-group">
@@ -280,8 +276,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Code postale <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number"  value="<%= (String)request.getAttribute("codepostale") %>" id="codePostale" name="codePostale" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
-                           <input type="hidden" value="<%= (String)request.getAttribute("id") %>" name="id">
+                            <input type="number"  value="<%= (Long)request.getAttribute("codepostale") %>" id="codePostale" name="codePostale" required="required" data-validate-minmax="0111,9999" class="form-control col-md-7 col-xs-12">
+                           <input type="hidden" value="<%= (Long)request.getAttribute("id") %>" name="id">
                         </div>
                     </div>
                     <div class="ln_solid"></div>

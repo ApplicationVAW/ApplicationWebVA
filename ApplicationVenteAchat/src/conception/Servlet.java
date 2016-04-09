@@ -59,13 +59,18 @@ public class Servlet extends HttpServlet {
 			//le cas ou les donné sont non conforme
 			
 		RequestDispatcher disp = request.getRequestDispatcher("/view/loginAgent.jsp");
+		int i = 2 ;
+		request.setAttribute("connect", i);
 	    disp.forward(request, response);
 	    }
 		else {
-			//le cas ou les données soont conforme
-			//HttpSession session = request.getSession();
-			//session.setAttribute("username", agent.getLogin());
+			//le cas ou les données sont conforme
+			
+			
+			int i = 1 ;
+			
 			RequestDispatcher disp = request.getRequestDispatcher("/view/accueil.jsp");
+			request.setAttribute("connect", i);
 		    disp.forward(request, response);
 		}
 	

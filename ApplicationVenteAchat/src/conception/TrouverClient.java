@@ -41,7 +41,7 @@ public class TrouverClient extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String id = request.getParameter("code");
+		String id = (String)request.getParameter("code");
 		 Long codeClient = Long.parseLong(id);
 		 Client cl = new Client();
 		 Client res = new Client();

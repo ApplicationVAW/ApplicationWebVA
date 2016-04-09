@@ -4,18 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Liste des clients</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
-    
-   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/supprime.css" rel="stylesheet">
      <link href="${pageContext.request.contextPath}/view/css/green.css" rel="stylesheet">
+      <link href="${pageContext.request.contextPath}/view/css/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/view/css/custom1.css" rel="stylesheet">
     
 
     
@@ -28,58 +25,10 @@
 
 <body>
 
-<% int a = 0;
-try{
-	 int res = (int)request.getAttribute("connect");
-	// int rest = Integer.parseInt(res);
-	 if(res == 1){
-		 //AgentConnecté
-		 %>
-		 
-		 <script type="text/javascript">
 
-		 $(document).ready(function () {
-			    $.growl({
-			        message: 'Bienvenue :) vous étes connecté',
-			     
-			    }, {
-			    	type: 'success',
-			        placement: {
-			            from: "bottom",
-			            align: "left"
-			        },
-			        delay: 7000
-			    });
-			});
 
-       </script>
-		 
-		 <%
-	 }
-	
-} catch(Exception e){
-	 %>
-	  <script type="text/javascript">
 
-		 $(document).ready(function () {
-			    $.growl({
-			        message: 'catch',
-			     
-			    }, {
-			    	type: 'success',
-			        placement: {
-			            from: "bottom",
-			            align: "left"
-			        },
-			        delay: 7000
-			    });
-			});
 
-       </script>
-	 
-	 <% 
-}
-%>
 
 
 <div class="nav-side-menu">
@@ -101,7 +50,7 @@ try{
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
-                <li><a href="#">Ajouter commande</a></li>
+                <li class="active"><a href="#">Ajouter commande</a></li>
                 <li><a href="#">Modifier commande</a></li>
                 <li><a href="#">Supprimer commande</a></li>
                 <li><a href="#">Chercher commande</a></li>
@@ -120,14 +69,14 @@ try{
             </ul>
 
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
+            <li data-toggle="collapse" data-target="#service" class="collapsed active">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
+            <ul class="sub-menu" id="service">
                 <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
-                <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
-                <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
+                <li ><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
+                <li class="active" ><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
             </ul>
 
 
@@ -165,8 +114,82 @@ try{
 
         </ul>
     </div>
+    
+    
+
+
+
+<div class="right_col" role="main" style="min-height: 667px;">
+
+        <div class="">
+         
+          <div class="clearfix"></div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_content">
+
+                  <div class="row" style="height:1000px ; width:880px ;">
+
+                  
+                    <div class="clearfix"></div>
+                    
+                    
+                     <%@ page import="client.Client, java.util.*;" %>
+                     <% Client c = new Client();
+             		List<Client> liste = c.afficherTousClients();
+            		for(Client client:liste){%>
+            		
+            			
+            		
+                    <div class="col-md-4 col-sm-4 col-xs-12 animated fadeInDown">
+                      <div class="well profile_view">
+                        <div class="col-sm-12">
+                          <h4 class="brief"><i>VenteAch@t</i></h4>
+                          <div class="left col-xs-7">
+                            <h2><%= (String)client.getNom() + (String)client.getPrenom() %></h2>
+                            <p><strong>Cin : </strong> <%= (Long)client.getCin() %> </p>
+                            <ul class="list-unstyled">
+                              <li><i class="fa fa-phone"></i> Address: <%= (String)client.getVille()%></li>
+                              <li><i class="fa fa-phone"></i> Telephone: <%= (Long)client.getTel() %></li>
+
+                            </ul>
+                          </div>
+                          <div class="right col-xs-5 text-center">
+                            <img src="image/img.jpg" alt="" class="img-circle img-responsive">
+                          </div>
+                        </div>
+                        <div class="col-xs-12 bottom text-center">
+                         
+                          <div class="col-xs-12 col-sm-6 emphasis">
+                            <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                                            </i> <i class="fa fa-comments-o"></i> </button>
+                            <button type="button" class="btn btn-primary btn-xs" style="position:fixed;"> <i class="fa fa-user">
+                                                            </i> View Profile </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% } %>
+                    
+               </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+
+      </div>
+    
+    
+    
+    
 </div>
    <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
-    
+ 
 </body>
 </html>

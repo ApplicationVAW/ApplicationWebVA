@@ -40,7 +40,7 @@ public class ModifierClientServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		     Long code = Long.parseLong(request.getParameter("id"));
+		     Long code = Long.parseLong((String)request.getParameter("id"));
 		     String nom =  request.getParameter("nom");
 	         String prenom =  request.getParameter("prenom");
 	         String email =  request.getParameter("email");

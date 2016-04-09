@@ -416,7 +416,7 @@ table.no-margin .progress {
   position: relative;
   min-height: 1px;
   float: left;
-  padding-right: 10px;
+  
   padding-left: 10px;
 }
 .row {
@@ -796,9 +796,9 @@ h2 {
 }
 .x_panel {
   margin-top: 50px;
-  margin-left: 20px;
+  margin-left: 57px;
   position: relative;
-  width: 95%;
+  width: 100%;
   margin-bottom: 87px;
   padding: 10px 17px;
   display: inline-block;
@@ -892,7 +892,7 @@ legend {
   background: #fff;
 }
 .well.profile_view .bottom {
-  margin-top: -20px;
+ 
   background: #F2F5F7;
   padding: 9px 0;
   border-top: 1px solid #E6E9ED;

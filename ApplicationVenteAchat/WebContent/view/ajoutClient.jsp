@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>menu</title>
+    <title>Ajouter client</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
 
@@ -41,9 +41,9 @@
 <% int t = 0 ;
  
  try{
-	 String res = request.getParameter("res");
-	 int rest = Integer.parseInt(res);
-	 if(rest==1){
+	 int res = (int)request.getAttribute("res");
+	// int rest = Integer.parseInt(res);
+	 if(res==1){
 		 //client ajouté
 		 %>
 		 
@@ -59,7 +59,7 @@
 			            from: "bottom",
 			            align: "left"
 			        },
-			        delay: 1000
+			        delay: 10000
 			    });
 			});
 
@@ -83,7 +83,7 @@
 			            from: "bottom",
 			            align: "left"
 			        },
-			        delay: 1000
+			        delay: 10000
 			    });
 			});
 
@@ -140,10 +140,10 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed active">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="service">
-                <li><a href="active">Ajouter client</a></li>
-                <li><a href="#">Supprimer client</a></li>
-                <li><a href="#">Modifier client</a></li>
+            <ul class="sub-menu " id="service">
+                <li class="active"><a href="#">Ajouter client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
                 <li><a href="#">Chercher client</a></li>
             </ul>
 
@@ -216,14 +216,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Nom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nom"  required="required" type="text">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Prenom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="prenom" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="prenom"  required="required" type="text">
+                            <input id="prenom" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="prenom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
