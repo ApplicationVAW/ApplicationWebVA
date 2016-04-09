@@ -75,6 +75,7 @@ public class Test {
 			Produit pc = it.next();
 			pc.show();}
 		
+		
 		//*****************************************************************************
 		//ajouter un client 
 		Client client = new Client();
@@ -93,6 +94,21 @@ public class Test {
 		ligneCommande.addLigneCommande(ligneCommande2, commande2);
 		ligneCommande.addLigneCommande(ligneCommande3, commande1);
 		
+		
+ //affichage une commande
+		
+		Commande com1 = commande1.getCommande(1L);
+		System.out.println("Num commande "+com1.getCodeCommande()+" Num client "+ com1.getClient().getCodeClient());
+		Iterator<LigneCommande> itCom = com1.getLignes().iterator();
+		while (itCom.hasNext()){
+			LigneCommande lc = itCom.next();
+			lc.show();}
+		com1.verifierCommande(1L);
+	
+		
 	}
-
 }
+		
+		
+		
+	

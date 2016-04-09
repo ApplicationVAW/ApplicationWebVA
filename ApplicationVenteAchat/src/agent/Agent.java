@@ -71,13 +71,15 @@ public class Agent {
 		boolean authentif= false ;
 		Session session = HibernateUtil.getSession().getCurrentSession();
 		session.beginTransaction();
-		
 		Agent agent = new Agent();
-		
 		//ici je dois utiliser .get() au lieu de .load()
+
+		
+
 		//agent = (Agent)session.get(Agent.class, login);
 		
 		Query query = session.createQuery("from Agent where login_agent = :logAgent");
+
 		query.setParameter("logAgent", login);
 		List<Agent> liste = query.list();
 		

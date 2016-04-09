@@ -2,13 +2,10 @@ package commande;
 
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
-
 import org.hibernate.Session;
-
-import categorie.Categorie;
 import client.Client;
-import produit.Produit;
 import util.HibernateUtil;
 
 
@@ -64,6 +61,33 @@ public class Commande {
 		session.save(commande);
 		session.getTransaction().commit();
 	}
+	
+	//retourner une commande
+		public Commande getCommande(Long codeCom){
+			Session session = HibernateUtil.getSession().getCurrentSession();
+			session.beginTransaction();
+			Commande com = (Commande) session.load(Commande.class, codeCom);
+			return com;
+		}
+		
+		
+	//retourner une commande
+		public Commande verifierCommande(Long codeCom){
+			//com.getLignes();
+			Commande com = getCommande(1L);
+			Iterator<LigneCommande> it = com.getLignes().iterator();
+			while (it.hasNext()){
+				LigneCommande lc = it.next();
+				int qteStock = lc.getProduit().getQuantiteStock();
+				int qteDemande = lc.getQte();
+				if(qteStock>qteDemande){
+					System.out.println("le produit est disponible ");
+				}
+				else {System.out.println("quantité insuffisante ");}
+			}
+			
+			return com;
+				}
 	
 
 	

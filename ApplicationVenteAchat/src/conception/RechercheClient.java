@@ -50,8 +50,6 @@ public class RechercheClient extends HttpServlet {
 		String cin = request.getParameter("cin");
 		String page = request.getParameter("page");
 		
-		write.println(page);
-		write.println(cin);
 		
 		Client c = new Client();
 		/*List<Client> res = new ArrayList<Client>();

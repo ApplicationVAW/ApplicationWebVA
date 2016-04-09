@@ -1,8 +1,6 @@
 package commande;
 
 import org.hibernate.Session;
-
-import categorie.Categorie;
 import produit.Produit;
 import util.HibernateUtil;
 
@@ -56,6 +54,12 @@ public class LigneCommande {
 		l.setCommande(c);
 		session.save(l);
 		session.getTransaction().commit();
+	}
+
+// afficher une ligne pour le test 
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("code produit "+this.produit.getCodeProduit()+" - "+ this.produit.getNom()+" - " + this.qte);	
 	}
 	
 	
