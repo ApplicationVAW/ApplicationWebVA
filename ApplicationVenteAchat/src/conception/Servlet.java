@@ -51,7 +51,7 @@ public class Servlet extends HttpServlet {
 		
 		//verification de conformité des donné saisie
 		
-		Boolean resultat ;
+		Boolean resultat = false;
 		Agent agent = new Agent();
 	    resultat = agent.seConnecter(identifiant, mdp);
 	    
