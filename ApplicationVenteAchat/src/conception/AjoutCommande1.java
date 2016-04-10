@@ -38,9 +38,10 @@ public class AjoutCommande1 extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
 		String id = (String)request.getParameter("code");
 	    Long codeClient = Long.parseLong(id);
 		
