@@ -251,7 +251,10 @@ try{
 
 
 
+<% try {
 
+int etat = (int)request.getAttribute("etat");
+%>
 
         <div class="row1">
             <div class="col-md-12">
@@ -313,7 +316,8 @@ try{
                 </div>
             </div>
     
-    
+    <%} catch (Exception e){
+	  }%>
     
     
 </div>

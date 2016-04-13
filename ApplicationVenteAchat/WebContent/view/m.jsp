@@ -216,14 +216,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Nom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="name" value="<%= (String)request.getAttribute("nom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nom"  required="required" type="text">
+                            <input id="name" value="<%= (String)request.getAttribute("nom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Prenom <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="prenom" value="<%= (String)request.getAttribute("prenom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="prenom"  required="required" type="text">
+                            <input id="prenom" value="<%= (String)request.getAttribute("prenom") %>" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="prenom"  required="required" type="text">
                         </div>
                     </div>
                     <div class="item form-group">
@@ -244,7 +244,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">CIN <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" value="<%= (Long)request.getAttribute("cin") %>" id="number" name="cin" required="required" data-validate-minmax="11111111,99999999" class="form-control col-md-7 col-xs-12">
+                            <input type="number" value="<%= (Long)request.getAttribute("cin") %>" id="number" name="cin" required="required" data-validate-minmax="0,99999999" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
 

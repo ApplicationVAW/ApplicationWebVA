@@ -53,8 +53,10 @@ public class ModifierClientServlet extends HttpServlet {
 	         Client client = new Client();
 	         client.modifierClient(code, nom, prenom, email, adresse, ville, codePostale, telephone, cin);
 	         int res = 1;
+	       
 	         RequestDispatcher disp = request.getRequestDispatcher("/view/ModifClient.jsp");
 	         request.setAttribute("res", res);
+	       
 	         disp.forward(request, response);
 	         
 		

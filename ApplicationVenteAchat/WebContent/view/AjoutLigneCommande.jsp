@@ -176,13 +176,13 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"></div>
-                    <input type="text" class="form-control" id="codeProduit" placeholder="Naam">
+                    <input type="text" class="form-control" name="codeProduit" placeholder="Naam">
                 </div>
             </div>
             <div class="form-group">
                <div class="input-group">
                     <div class="input-group-addon"></div>
-                    <input type="number" class="form-control" id="qte" placeholder="Naam">
+                    <input type="number" class="form-control" name="qte" placeholder="Naam">
                 </div>
             </div>
              <input type="hidden"  name="codeCommande" value="2">

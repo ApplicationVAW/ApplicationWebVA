@@ -142,6 +142,8 @@ public class RechercheClient extends HttpServlet {
 		request.setAttribute("ville" , cli.getVille());
 		request.setAttribute("codepostale" , cli.getCodePostale());
 		request.setAttribute("id" , cli.getCodeClient());
+		int etat = 1;
+		request.setAttribute("etat",etat);
 		disp.forward(request, response);
 		}
 		catch(Exception e){

@@ -44,8 +44,11 @@ public class SupprClient extends HttpServlet {
 		Client client  = new Client();
 		client.supprimerClient(codeClient);
 		int res = 1;
+		
 		RequestDispatcher disp = request.getRequestDispatcher("/view/SupprClient.jsp");
 		request.setAttribute("res",res);
+		
+		
 		disp.forward(request, response);
 		
 	}

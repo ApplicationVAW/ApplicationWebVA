@@ -10,8 +10,9 @@
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/supprime.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/view/css/green.css" rel="stylesheet">
     
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="${pageContext.request.contextPath}/view/js/jquery.bootstrap-growl.min.js"></script>
@@ -25,8 +26,8 @@
 
 <% int a = 0;
  try{
-	 String var = (String)request.getAttribute("res");
-	 int res = Integer.parseInt(var);
+	 
+	 int res = (int)request.getAttribute("res");
 	 if(res==1){
 		 %>
 		 
@@ -222,7 +223,10 @@
 
 
 
+<% try {
 
+int etat = (int)request.getAttribute("etat");
+%>
 
 
         <div class="row1">
@@ -232,6 +236,7 @@
                         <h3 class="panel-title">Client</h3>
 
                     </div>
+                    
 
                     <table class="table table-bordered" id="dev-table">
                         <thead>
@@ -276,13 +281,16 @@
                     </div>
                 </div>
             </div>
-    
+            
+<%} catch (Exception e){
+	  }%>
+
     
     
     
 </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
     <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/view/js/jquery.min.js"></script>
+   
 </body>
 </html>
