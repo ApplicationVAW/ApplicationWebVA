@@ -8,10 +8,7 @@
     <title>Ajouter client</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
-
-
-
-
+    <link href="${pageContext.request.contextPath}/view/css/add.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/acueil.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/animate.min.css" rel="stylesheet">
@@ -33,14 +30,14 @@
 	 int res = (int)request.getAttribute("res");
 	// int rest = Integer.parseInt(res);
 	 if(res==1){
-		 //client ajouté
+		 //client ajoutÃ©
 		 %>
 		 
 		 <script type="text/javascript">
 
 		 $(document).ready(function () {
 			    $.growl({
-			        message: 'le nouveau client a été ajouté avec succée',
+			        message: 'le nouveau client a Ã©tÃ© ajoutÃ© avec succÃ©e',
 			     
 			    }, {
 			    	type: 'success',
@@ -57,14 +54,14 @@
 		 <%
 	 }
 	 else{
-		 // client non ajouté
+		 // client non ajoutÃ©
 		 %>
 		 <script type="text/javascript">
 
 		 $(document).ready(function () {
 			    $.growl({
 			    	icon: 'glyphicon glyphicon-warning-sign',
-			        message: 'le client existe deja !! verifier les données saisies',
+			        message: 'le client existe deja !! verifier les donnÃ©es saisies',
 			      
 			    }, {
 			    	type: 'danger',
@@ -91,7 +88,7 @@
 
 
 <div class="nav-side-menu">
-    <div class="brand">Nom du societé</div>
+    <div class="brand">Nom du societÃ©</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
     <div class="menu-list">
@@ -141,7 +138,7 @@
                 <a href="#"><i class="fa fa-car fa-lg"></i> Capegories <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
-                <li><a href="#">Ajouter catégorie</a></li>
+                <li><a href="#">Ajouter catÃ©gorie</a></li>
                 <li><a href="#">Supprimer categorie</a></li>
                 <li><a href="#">Modifier categorie</a></li>
             </ul>
@@ -174,68 +171,27 @@
         </ul>
     </div>
 
-
-
-
-
-
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Donnée de nouveau client </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
+<div class="container">
+    <div id="calc" class="row text-center">
+        <form class="entry form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"></div>
+                    <input type="text" class="form-control" id="codeProduit" placeholder="Naam">
+                </div>
             </div>
-            
-            <!-- formulaire -->
-            
-            <div class="x_content">
-
-                <form class="form-horizontal form-label-left" novalidate="" method="post"  action="/ApplicationVenteAchat/AjouterClient">
-
-
-                    <span class="section"><br></span>
-
-                    <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Nom <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nom"  required="required" type="text">
-                        </div>
-                    </div>
-                    <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ville">Prenom <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="prenom" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="prenom"  required="required" type="text">
-                        </div>
-                    </div>
-                   
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                            <button type="reset" class="btn btn-primary">Annuler</button>
-                            <button id="send" type="submit" class="btn btn-success">enregistrer</button>
-                        </div>
-                    </div>
-                </form>
-
+            <div class="form-group">
+               <div class="input-group">
+                    <div class="input-group-addon"></div>
+                    <input type="number" class="form-control" id="qte" placeholder="Naam">
+                </div>
             </div>
-        </div>
-
-
-
+          <button type="submit" class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"></span></button>
+        </form>
+    </div>
 </div>
-        
+        <script src="${pageContext.request.contextPath}/view/js/add.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
-
-
-      
         <script src="${pageContext.request.contextPath}/view/js/validator.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/custom.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/icheck.min.js"></script>
