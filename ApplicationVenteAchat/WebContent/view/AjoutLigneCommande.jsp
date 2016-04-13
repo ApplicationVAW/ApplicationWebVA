@@ -22,8 +22,6 @@
 </head>
 <body>
            
-             
-
 <% int t = 0 ;
  
  try{
@@ -173,7 +171,9 @@
 
 <div class="container">
     <div id="calc" class="row text-center">
-        <form class="entry form-inline">
+      
+        <div class="entry form-inline">
+          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"></div>
@@ -186,8 +186,12 @@
                     <input type="number" class="form-control" id="qte" placeholder="Naam">
                 </div>
             </div>
-          <button type="submit" class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"></span></button>
-        </form>
+             <input type="hidden"  name="codeCommande" value="2">
+             <button id="send" type="submit" class="btn btn-success" >Enregistrer</button>
+          </form>
+          <button class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+        
     </div>
 </div>
         <script src="${pageContext.request.contextPath}/view/js/add.js"></script>
@@ -196,12 +200,6 @@
         <script src="${pageContext.request.contextPath}/view/js/custom.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/icheck.min.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/pace.min.js"></script>
-  
-
-
-
-
-
 <script>
     // initialize the validator function
     validator.message['date'] = 'not a real date';
@@ -244,7 +242,5 @@
             $('form .alert').remove();
     }).prop('checked', false);
 </script>
-
-
 </body>
 </html>
