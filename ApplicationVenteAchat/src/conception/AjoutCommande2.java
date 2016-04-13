@@ -60,8 +60,7 @@ public class AjoutCommande2 extends HttpServlet {
 	    ligneCommande.addLigneCommande(ligneCommande1, commande1);
 	    RequestDispatcher disp = request.getRequestDispatcher("/view/AjoutLigneCommande.jsp");
          disp.forward(request, response);
-    	
-    	
+    		
 			
 	}
 
