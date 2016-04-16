@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Set;
 import org.hibernate.Session;
 import client.Client;
+import produit.Produit;
 import util.HibernateUtil;
 
 
@@ -70,9 +71,23 @@ public class Commande {
 			return com;
 		}
 		
+	//afficher tous les produits d'une commande
+	public void retournerTousLigneCommande(Long codeCom){
+		Session session = HibernateUtil.getSession().getCurrentSession();
+		session.beginTransaction();
+		Commande com = (Commande) session.load(Commande.class, codeCom);
+		Iterator<LigneCommande> it = com.getLignes().iterator();
+		while (it.hasNext()){
+			LigneCommande lc = it.next();
+			Produit produit = lc.getProduit();
+			int qteDemande = lc.getQte();
+			
+			}
+	}	
+		
 		
 	//retourner une commande
-		public Commande verifierCommande(Long codeCom){
+		public void verifierCommande(Long codeCom){
 			//com.getLignes();
 			Commande com = getCommande(1L);
 			Iterator<LigneCommande> it = com.getLignes().iterator();
@@ -85,8 +100,6 @@ public class Commande {
 				}
 				else {System.out.println("quantité insuffisante ");}
 			}
-			
-			return com;
 				}
 	
 

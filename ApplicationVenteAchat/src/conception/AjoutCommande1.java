@@ -44,21 +44,17 @@ public class AjoutCommande1 extends HttpServlet {
 	
 		String id = (String)request.getParameter("code");
 	    Long codeClient = Long.parseLong(id);
-		
 		 Client client = new Client();
 		 Client client1 = new Client();
 		 client1 = client.afficherClient(codeClient);
 		 Commande commande = new Commande();
 		 Commande commande1 = new Commande(new Date());
 		 commande.addCommande(commande1, client1);
-		 //int res = 1;
-         RequestDispatcher disp = request.getRequestDispatcher("/view/AjoutLigneCommande.jsp");
-        //request.setAttribute("res", res);
+         request.setAttribute("commande", commande1);
+         request.setAttribute("codeCommande" , commande1.getCodeCommande());
+         RequestDispatcher disp = request.getRequestDispatcher("/view/LigneCommande.jsp"); //choft fin normalment temchi ??? 
+         //or hiya temchi el AjoutLigneCommande.jsp 
          disp.forward(request, response);
-		/* response.setContentType("text/html");
-			PrintWriter out = response.getWriter();
-			out.println(client1.getNom());*/
-		 
 		
 	}
 

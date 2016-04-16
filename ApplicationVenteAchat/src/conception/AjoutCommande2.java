@@ -1,6 +1,7 @@
 package conception;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -52,15 +53,14 @@ public class AjoutCommande2 extends HttpServlet {
 	    int qte=Integer.parseInt(quantite);
 	    String codeProd = (String)request.getParameter("codeProduit");
 	    Long codeProduit = Long.parseLong(codeProd);
-	    Produit p = new Produit();
 	    Produit p1 = new Produit();
-	    p1 = p.getProduit(codeProduit);
-	    LigneCommande ligneCommande = new LigneCommande();
-	    LigneCommande ligneCommande1 = new LigneCommande(p1,qte);
-	    ligneCommande.addLigneCommande(ligneCommande1, commande1);
+	    LigneCommande ligne = new LigneCommande(p1.getProduit(codeProduit),qte);
+	    ligne.addLigneCommande(ligne,commande1);
+	    int exist=1;
+	    request.setAttribute("exist", exist);
 	    RequestDispatcher disp = request.getRequestDispatcher("/view/AjoutLigneCommande.jsp");
-         disp.forward(request, response);
-    		
+        disp.forward(request, response);
+	  	
 			
 	}
 

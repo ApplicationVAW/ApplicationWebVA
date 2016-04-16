@@ -104,6 +104,7 @@ public class Test {
 			LigneCommande lc = itCom.next();
 			lc.show();}
 		com1.verifierCommande(1L);
+	     c.deleteCategorie(2L);
 	
 		
 	}

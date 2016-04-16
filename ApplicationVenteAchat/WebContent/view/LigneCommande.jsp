@@ -97,12 +97,7 @@
 
 
 <!-- hedhi hia ell partie elli dima tetbaddel -->
-<% 
-		Commande com = (Commande) request.getAttribute("commande");
-    // Commande commande = new Commande();
-      //Commande com = commande.getCommande(1L);
-    //Long code = (Long)request.getAttribute("codeCommande");
-    //Commande com = commande.getCommande(code); %>
+
 
 
 <div class="partieDroite">
@@ -114,41 +109,26 @@
 
 <div class="container">
     <div id="calc" class="row text-center">
-    <div class="form-group">
-           <h3>Commande <%=com.getDateCommande() %></h3>   <h2>Code Commande : <%=com.getCodeCommande() %></h2>       
-            </div>
-            <div class="form-group">
-           <h2>Client : <%=com.getClient().getNom() %> <%=com.getClient().getPrenom() %></h2>   
-            </div>
-            <br>
       
      <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande1, client.Client, java.util.Iterator, java.util.*" %>
-   <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <td>code produit</td>
-                            <td>nom produit</td>
-                            <td>quantite</td>
-                            
-                        </tr>
-                        </thead>
+   
     <% 
-		Iterator<LigneCommande> it = com.getLignes().iterator();
-		while (it.hasNext()){
-			LigneCommande lc = it.next(); %>
-			
-                        <tbody>
-                        <tr>
-                            <td><%= lc.getProduit().getCodeProduit()%></td>
-                            <td><%= lc.getProduit().getNom() %></td>
-                            <td><%= lc.getQte() %></td>      
-                        </tr>
-                       <% } %>
-                        </tbody>
-                    </table>
+		Commande com = (Commande) request.getAttribute("commande");
+     //Commande commande = new Commande();
+      //Commande com = new Commande(new Date());
+    //Long code = (Long)request.getAttribute("codeCommande");
+    //Commande com = commande.getCommande(code); %>
+
+		
         <div class="entry form-inline">
           <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
-           
+          <div class="form-group">
+           <h3>Commande</h3>      
+            </div>
+          <div class="form-group">
+           <h2><%=com.getDateCommande() %></h2>      
+            </div>
+            <br>
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"></div>

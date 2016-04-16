@@ -11,8 +11,7 @@
       <id name="codeCommande" column="CODE_COMMANDE">
          <generator class="native"/>
       </id>
-      <property name="dateCommande" column="DATE_COMMANDE" />
-      
+      <property name="dateCommande" column="DATE_COMMANDE" />   
         <set name="lignes" table="LIGNE_COMMANDE"
                 inverse="true"  fetch="select" cascade="all">
             <key>
