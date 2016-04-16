@@ -56,8 +56,7 @@ public class AjoutCommande2 extends HttpServlet {
 	    Produit p1 = new Produit();
 	    LigneCommande ligne = new LigneCommande(p1.getProduit(codeProduit),qte);
 	    ligne.addLigneCommande(ligne,commande1);
-	    int exist=1;
-	    request.setAttribute("exist", exist);
+	    request.setAttribute("commande", commande1);
 	    RequestDispatcher disp = request.getRequestDispatcher("/view/AjoutLigneCommande.jsp");
         disp.forward(request, response);
 	  	
