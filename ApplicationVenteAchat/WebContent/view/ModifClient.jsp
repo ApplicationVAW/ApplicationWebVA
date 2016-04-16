@@ -217,7 +217,7 @@ try{
                                 <div class="form-group has-feedback">
 
                                     <br>
-                                    <input type="NUMBER" class="span5" placeholder="CN" name="cin"/>
+                                    <input type="NUMBER" class="span5" placeholder="CIN" name="cin"/>
                                     <input type="hidden"  name="page" value="/view/ModifClient.jsp">
 
                                 </div>
@@ -277,7 +277,7 @@ int etat = (int)request.getAttribute("etat");
                         </tr>
                         </thead>
                         <tbody>
-                        <%@ page import="client.Client, java.util.*;" %>
+                        <%@ page import="client.Client, java.util.*"%>
                         
                         <% Client client = new Client(); 
                         

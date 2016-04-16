@@ -242,7 +242,7 @@ int etat = (int)request.getAttribute("etat");
                         </tr>
                         </thead>
                         <tbody>
-                        <%@ page import="java.util.List;" %>
+                        <%@ page import="java.util.List" %>
                         
                         <% 
                         

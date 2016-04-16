@@ -236,7 +236,7 @@
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <select class="form-control" name="categorie">
                     
-                    <%@ page import="categorie.Categorie, java.util.*;" %>
+                    <%@ page import="categorie.Categorie, java.util.*" %>
                     <% Categorie cat = new Categorie(); 
                        List<Categorie> liste = cat.getAllCategorie();
                        for(Categorie cc:liste){

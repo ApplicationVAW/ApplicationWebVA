@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>modifier produit</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>modifier cordonnée client</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
@@ -242,7 +242,7 @@ int etat = (int)request.getAttribute("etat");
 
         <div class="row1">
             <div class="col-md-12">
-            <div class="x_panel">
+            <div class="x_panel" style="background-color: white ;">
             
             
             <div class="x_title">
@@ -301,7 +301,7 @@ int etat = (int)request.getAttribute("etat");
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <select class="form-control" name="categorie">
                     
-                    <%@ page import="categorie.Categorie, java.util.*;" %>
+                    <%@ page import="categorie.Categorie, java.util.*" %>
                     <% Categorie cat = new Categorie(); 
                        List<Categorie> liste = cat.getAllCategorie();
                        for(Categorie cc:liste){

@@ -205,7 +205,7 @@
 
                 <form class="form-horizontal form-label-left" novalidate="" method="post"  action="/ApplicationVenteAchat/ModifierClientServlet">
 
-               <%@ page import="client.Client, java.util.List;" %>
+               <%@ page import="client.Client, java.util.List" %>
                <% 
               // Client cl = (Client)request.getAttribute("client");
                %>

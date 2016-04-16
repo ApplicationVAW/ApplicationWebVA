@@ -136,7 +136,7 @@
                     <div class="clearfix"></div>
                     
                     
-                     <%@ page import="client.Client, java.util.*;" %>
+                     <%@ page import="client.Client, java.util.*" %>
                      <% Client c = new Client();
              		List<Client> liste = c.afficherTousClients();
             		for(Client client:liste){%>

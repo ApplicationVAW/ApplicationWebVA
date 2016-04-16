@@ -251,7 +251,7 @@ int etat = (int)request.getAttribute("etat");
                         </tr>
                         </thead>
                         <tbody>
-                        <%@ page import="client.Client, java.util.List;" %>
+                        <%@ page import="client.Client, java.util.List" %>
                         
                         <% Client client = new Client();
                         

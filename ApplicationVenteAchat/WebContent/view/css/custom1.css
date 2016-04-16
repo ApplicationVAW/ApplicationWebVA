@@ -298,7 +298,7 @@ body.nav-md .container.body .right_col {
 }
 body {
   color: #73879C;
-  background: #2A3F54;
+  
   /*#ECF0F1; #FCFCFC*/
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
   font-size: 13px;
@@ -421,7 +421,7 @@ table.no-margin .progress {
 }
 .row {
   margin-right: -10px;
-  margin-left: -10px;
+  margin-left: 40px;
 }
 .grid_slider .col-md-6 {
   padding: 0 40px;
