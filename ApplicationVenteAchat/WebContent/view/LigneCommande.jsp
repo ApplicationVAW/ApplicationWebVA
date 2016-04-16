@@ -141,7 +141,7 @@
                     <input type="number" class="form-control" name="qte" placeholder="quantité commandé">
                 </div>
             </div>
-             <input type="hidden"  name="codeCommande" value= "1" > 
+             <input type="hidden"  name="codeCommande" value= "<%=com.getCodeCommande() %>" > 
              <button id="send" type="submit" class="btn btn-success" >Enregistrer</button>
           </form>
          
