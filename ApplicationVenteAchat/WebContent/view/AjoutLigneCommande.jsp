@@ -22,6 +22,7 @@
 </head>
 <body>
  <%@ page import="conception.AjoutCommande1" %>  
+  <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande2, client.Client, java.util.Iterator, java.util.*" %>
 
 <div class="nav-side-menu">
     <div class="brand">Nom du societ√©</div>
@@ -97,12 +98,18 @@
 
 
 <!-- hedhi hia ell partie elli dima tetbaddel -->
-<% 
-		Commande com = (Commande) request.getAttribute("commande");
-    // Commande commande = new Commande();
+<%@ page import="conception.AjoutCommande1" %>  
+  <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande2, client.Client, java.util.Iterator, java.util.*" %>
+<% //Commande com = (Commande) request.getAttribute("commande");
       //Commande com = commande.getCommande(1L);
-    //Long code = (Long)request.getAttribute("codeCommande");
-    //Commande com = commande.getCommande(code); %>
+   Long code = (Long)request.getAttribute("codeCommande");
+   Commande commande = new Commande();
+   Commande com = commande.getCommande(code);
+   String nomClient= com.getClient().getNom();
+   // out.println("aaaaaa"+code);
+    //Commande com = commande.getCommande(code);
+    
+    %>
 
 
 <div class="partieDroite">
@@ -111,18 +118,19 @@
             <li><a class="current" href="home.html" title="fermer"></a></li>
         </ul>
     </div>
-
+<!-- hedhi hia ell partie elli dima tetbaddel -->
+<!-- hedhi hia ell partie elli dima tetbaddel -->
 <div class="container">
     <div id="calc" class="row text-center">
     <div class="form-group">
-           <h3>Commande <%=com.getDateCommande() %></h3>   <h2>Code Commande : <%=com.getCodeCommande() %></h2>       
+     <h3>Code Commande : <%=com.getCodeCommande() %> </h3> <h3>Date :  <%=com.getDateCommande() %></h3>          
             </div>
             <div class="form-group">
            <h2>Client : <%=com.getClient().getNom() %> <%=com.getClient().getPrenom() %></h2>   
             </div>
             <br>
       
-     <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande1, client.Client, java.util.Iterator, java.util.*" %>
+    
    <table class="table table-hover">
                         <thead>
                         <tr>
@@ -147,28 +155,26 @@
                         </tbody>
                     </table>
         <div class="entry form-inline">
-          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
+          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2" >
            
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input type="number" class="form-control" name="codeProduit" placeholder="code produit">
-                </div>
-            </div>
-            <div class="form-group">
-               <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input type="number" class="form-control" name="qte" placeholder="quantitÈ commandÈ">
-                </div>
-            </div>
-             <input type="hidden"  name="codeCommande" value= "1" > 
-             <button id="send" type="submit" class="btn btn-success" >Enregistrer</button>
+           <div class="input-group">
+          
+               <input type="number" class="form-control" name="codeProduit" placeholder="code">
+             </div>
+             <div class="input-group">
+                    <input type="number" class="form-control" name="qte" placeholder="qte">
+                   
+             </div>
+             <button id="send" type="submit" class="btn btn-default" >Enregistrer</button>
+             <input type="hidden"  name="codeCommande" value= "<%=code %>" >
+              
           </form>
-         
+         </div>
         </div>
         
     </div>
 </div>
+
         <script src="${pageContext.request.contextPath}/view/js/add.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/validator.js"></script>

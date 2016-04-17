@@ -44,6 +44,7 @@ public class AjoutCommande1 extends HttpServlet {
 	
 		String id = (String)request.getParameter("code");
 	    Long codeClient = Long.parseLong(id);
+	    int i=0;
 		 Client client = new Client();
 		 Client client1 = new Client();
 		 client1 = client.afficherClient(codeClient);
@@ -52,6 +53,7 @@ public class AjoutCommande1 extends HttpServlet {
 		 commande.addCommande(commande1, client1);
          request.setAttribute("commande", commande1);
          request.setAttribute("codeCommande" , commande1.getCodeCommande());
+         request.setAttribute("indice", i);
          RequestDispatcher disp = request.getRequestDispatcher("/view/LigneCommande.jsp"); //choft fin normalment temchi ??? 
          //or hiya temchi el AjoutLigneCommande.jsp 
          disp.forward(request, response);

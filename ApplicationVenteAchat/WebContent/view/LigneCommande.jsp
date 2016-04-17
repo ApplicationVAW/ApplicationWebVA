@@ -22,6 +22,7 @@
 </head>
 <body>
  <%@ page import="conception.AjoutCommande1" %>  
+  <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande1, client.Client, java.util.Iterator, java.util.*" %>
 
 <div class="nav-side-menu">
     <div class="brand">Nom du societÃ©</div>
@@ -97,7 +98,12 @@
 
 
 <!-- hedhi hia ell partie elli dima tetbaddel -->
-
+<% 
+		Commande com = (Commande) request.getAttribute("commande");
+    // Commande commande = new Commande();
+      //Commande com = commande.getCommande(1L);
+    //Long code = (Long)request.getAttribute("codeCommande");
+    //Commande com = commande.getCommande(code); %>
 
 
 <div class="partieDroite">
@@ -109,40 +115,27 @@
 
 <div class="container">
     <div id="calc" class="row text-center">
-      
-     <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande1, client.Client, java.util.Iterator, java.util.*" %>
-   
-    <% 
-		Commande com = (Commande) request.getAttribute("commande");
-     //Commande commande = new Commande();
-      //Commande com = new Commande(new Date());
-    //Long code = (Long)request.getAttribute("codeCommande");
-    //Commande com = commande.getCommande(code); %>
-
-		
-        <div class="entry form-inline">
-          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
-          <div class="form-group">
-           <h3>Commande</h3>      
+    <div class="form-group">
+           <h3>Code Commande : <%=com.getCodeCommande() %> </h3> <h3>Date :  <%=com.getDateCommande() %></h3>          
             </div>
-          <div class="form-group">
-           <h2><%=com.getDateCommande() %></h2>      
+            <div class="form-group">
+           <h2>Client : <%=com.getClient().getNom() %> <%=com.getClient().getPrenom() %></h2>   
             </div>
             <br>
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input type="number" class="form-control" name="codeProduit" placeholder="code produit">
-                </div>
-            </div>
-            <div class="form-group">
-               <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input type="number" class="form-control" name="qte" placeholder="quantité commandé">
-                </div>
-            </div>
+        <div class="entry form-inline">
+          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
+           
+           <div class="input-group">
+          
+               <input type="number" class="form-control" name="codeProduit" placeholder="code">
+             </div>
+             <div class="input-group">
+                    <input type="number" class="form-control" name="qte" placeholder="qte">
+                   
+             </div>
+             <button id="send" type="submit" class="btn btn-default" >Enregistrer</button>
              <input type="hidden"  name="codeCommande" value= "<%=com.getCodeCommande() %>" > 
-             <button id="send" type="submit" class="btn btn-success" >Enregistrer</button>
+            
           </form>
          
         </div>
