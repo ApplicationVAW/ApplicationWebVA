@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>modifier cordonnée client</title>
+<title>Commande</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/menu.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" rel="stylesheet">
@@ -126,11 +126,11 @@ try{
                 </a>
             </li>
 
-            <li  data-toggle="collapse" data-target="#products" class="collapsed">
+            <li  data-toggle="collapse" data-target="#products" class="collapsed active">
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="#">Ajouter commande</a></li>
+            <ul class="sub-menu" id="products">
+                <li class="active"><a href="${pageContext.request.contextPath}/view/ajoutCommande1.jsp">Ajouter commande</a></li>
                 <li><a href="#">Modifier commande</a></li>
                 <li><a href="#">Supprimer commande</a></li>
                 <li><a href="#">Chercher commande</a></li>
@@ -141,18 +141,19 @@ try{
                     <a href="#"><i class="fa fa-globe fa-lg"></i> Produit <span class="arrow"></span></a>
             </li>
                 <ul class="sub-menu collapse" id="produit">
-                <li><a href="#">Ajouter produit</a></li>
-                <li><a href="#">Modifier produit</a></li>
-                <li><a href="#">Supprimer produit</a></li>
+                 <li><a href="${pageContext.request.contextPath}/view/ajoutProduit.jsp">Ajouter produit</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/ModifProduit.jsp">Modifier produit</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/SupprProduit.jsp">Supprimer produit</a></li>
                 <li><a href="#">chercher produits</a></li>
-                <li><a href="#">Afficher Produits</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/listeProduit.jsp">Afficher Produits</a></li>
+            
             </ul>
 
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed active">
+            <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu" id="service">
+            <ul class="sub-menu collapse" id="service">
                 <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
                 <li class="active"><a href="#">Modifier client</a></li>
@@ -251,7 +252,10 @@ try{
 
 
 
+<% try {
 
+int etat = (int)request.getAttribute("etat");
+%>
 
         <div class="row1">
             <div class="col-md-12">
@@ -274,7 +278,7 @@ try{
                         </tr>
                         </thead>
                         <tbody>
-                        <%@ page import="client.Client, java.util.*;" %>
+                        <%@ page import="client.Client, java.util.*" %>
                         
                         <% Client client = new Client(); 
                         
@@ -314,7 +318,8 @@ try{
             </div>
     
     
-    
+        <%} catch (Exception e){
+	  }%>
     
 </div>
    <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
