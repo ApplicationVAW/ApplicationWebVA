@@ -127,14 +127,16 @@
           <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2">
            
            <div class="input-group">
-          
+             <span class="input-group-addon" id="basic-addon1">Code du produit</span>
                <input type="number" class="form-control" name="codeProduit" placeholder="code">
+               <span class="input-group-addon"></span>
              </div>
              <div class="input-group">
-                    <input type="number" class="form-control" name="qte" placeholder="qte">
-                   
+             <span class="input-group-addon" id="basic-addon1">Quantité désirée</span>
+                    <input type="number" class="form-control" name="qte" placeholder="qte">   
+                    <span class="input-group-addon"></span>  
              </div>
-             <button id="send" type="submit" class="btn btn-default" >Ajouter ligne commande</button>
+             <button id="send" type="submit" class="btn btn-default" >Ajouter à la commande</button>
              <input type="hidden"  name="codeCommande" value= "<%=com.getCodeCommande() %>" > 
             
           </form>
@@ -143,7 +145,6 @@
         
     </div>
 </div>
-        <script src="${pageContext.request.contextPath}/view/js/add.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/validator.js"></script>
         <script src="${pageContext.request.contextPath}/view/js/custom.js"></script>
