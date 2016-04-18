@@ -64,8 +64,8 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu" id="service">
-                <li class="active"><a href="#">Ajouter client</a></li>
+            <ul class="sub-menu collapse" id="service">
+                <li><a href="#">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
                 <li><a href="#">Chercher client</a></li>
