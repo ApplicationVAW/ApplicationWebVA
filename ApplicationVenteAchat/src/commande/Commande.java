@@ -106,7 +106,7 @@ public class Commande {
 		public boolean verifCommande(LigneCommande lc){
 				int qteStock = lc.getProduit().getQuantiteStock();
 				int qteDemande = lc.getQte();
-				if(qteStock>qteDemande){
+				if(qteStock>=qteDemande){
 				return true;}
 				else {return false;}				
 			}

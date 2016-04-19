@@ -146,7 +146,7 @@
 		Iterator<LigneCommande> it = com.getLignes().iterator();
 		while (it.hasNext()){
 			LigneCommande lc = it.next();
-			if (com.verifCommande(lc)==true){src="dispo";}else{src="indispo";}	
+			if (commande.verifCommande(lc)){src="dispo";}else{src="indispo";}	
 			%>
 			
                         <tbody>

@@ -20,7 +20,7 @@
 #menu ul li{
     font-family: 'Exo 2', sans-serif;
     list-style:none;
-    display:inline;
+    
     width:auto;
     height:50px;
     line-height:42px;
@@ -28,7 +28,7 @@
 }
 #menu ul li a{
     font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
+    font-size: 99px;
     height: auto;
     width: auto;
     float:next;
