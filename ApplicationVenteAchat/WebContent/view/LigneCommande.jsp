@@ -25,7 +25,7 @@
   <%@ page import="produit.Produit, commande.Commande, commande.LigneCommande, conception.AjoutCommande1, client.Client, java.util.Iterator, java.util.*" %>
 
 <div class="nav-side-menu">
-    <div class="brand">Nom du societÃ©</div>
+    <div class="brand">Nom du societé</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
     <div class="menu-list">
@@ -136,7 +136,7 @@
                     <input type="number" class="form-control" name="qte" placeholder="qte">   
                     <span class="input-group-addon"></span>  
              </div>
-             <button id="send" type="submit" class="btn btn-default" >Ajouter à la commande</button>
+             <button id="send" type="submit" class="btn btn-success" >Ajouter à la commande</button>
              <input type="hidden"  name="codeCommande" value= "<%=com.getCodeCommande() %>" > 
             
           </form>

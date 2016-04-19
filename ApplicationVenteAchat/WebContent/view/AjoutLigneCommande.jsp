@@ -64,7 +64,7 @@
             <li data-toggle="collapse" data-target="#service" class="collapsed">
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
-            <ul class="sub-menu " id="service">
+            <ul class="sub-menu collapse" id="service">
                 <li><a href="#">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
@@ -159,7 +159,7 @@
           <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2" >
            
            <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Code du produit</span>
+                <span class="input-group-addon" id="basic-addon1">Code du produit</span>
                <input type="number" class="form-control" name="codeProduit" placeholder="code">
                <span class="input-group-addon"></span>
              </div>
@@ -168,7 +168,7 @@
                     <input type="number" class="form-control" name="qte" placeholder="qte">
                    <span class="input-group-addon"></span>
              </div>
-             <button id="send" type="submit" class="btn btn-default" >Ajouter à la Commande</button>
+             <button id="send" type="submit" class="btn btn-success" >Ajouter à la Commande</button>
              <input type="hidden"  name="codeCommande" value= "<%=code %>" >
               
           </form>
