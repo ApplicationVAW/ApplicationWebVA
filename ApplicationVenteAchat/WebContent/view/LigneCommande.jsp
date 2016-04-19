@@ -128,12 +128,12 @@
            
            <div class="input-group">
              <span class="input-group-addon" id="basic-addon1">Code du produit</span>
-               <input type="number" class="form-control" name="codeProduit" placeholder="code">
+               <input type="number" class="form-control" name="codeProduit" placeholder="...">
                <span class="input-group-addon"></span>
              </div>
              <div class="input-group">
              <span class="input-group-addon" id="basic-addon1">Quantité désirée</span>
-                    <input type="number" class="form-control" name="qte" placeholder="qte">   
+                    <input type="number" class="form-control" name="qte" placeholder="...">   
                     <span class="input-group-addon"></span>  
              </div>
              <button id="send" type="submit" class="btn btn-success" >Ajouter à la commande</button>
