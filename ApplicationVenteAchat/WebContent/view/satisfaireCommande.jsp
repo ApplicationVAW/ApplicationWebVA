@@ -107,7 +107,6 @@
    Commande commande = new Commande();
    Commande com = commande.getCommande(code);
    String nomClient= com.getClient().getNom();
-   String src="";
    // out.println("aaaaaa"+code);
     //Commande com = commande.getCommande(code);
     
@@ -140,13 +139,14 @@
                             <td>nom produit</td>
                             <td>quantite</td>
                             <td>disponibilité</td>
+                            
                         </tr>
                         </thead>
     <% 
 		Iterator<LigneCommande> it = com.getLignes().iterator();
 		while (it.hasNext()){
-			LigneCommande lc = it.next();
-			if (com.verifCommande(lc)==true){src="dispo";}else{src="indispo";}	
+			LigneCommande lc = it.next(); 
+			
 			%>
 			
                         <tbody>
@@ -154,24 +154,16 @@
                             <td><%= lc.getProduit().getCodeProduit()%></td>
                             <td><%= lc.getProduit().getNom() %></td>
                             <td><%= lc.getQte() %></td>  
-                             <td><%= src %></td>   
+                            <td><%
+                            if (com.verifCommande(lc)){%><h1>dispo</h1><%}
+                            else%><h1>dispo</h1></td>    
                         </tr>
                        <% } %>
                         </tbody>
                     </table>
         <div class="entry form-inline">
           <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2" >
-           
-           <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">Code du produit</span>
-               <input type="number" class="form-control" name="codeProduit" placeholder="...">
-               <span class="input-group-addon"></span>
-             </div>
-             <div class="input-group">
-             <span class="input-group-addon" id="basic-addon1">Quantité désirée</span>
-                    <input type="number" class="form-control" name="qte" placeholder="...">
-                   <span class="input-group-addon"></span>
-             </div>
+        
              <button id="send" type="submit" class="btn btn-success" >Ajouter à la Commande</button>
              <input type="hidden"  name="codeCommande" value= "<%=code %>" >
               

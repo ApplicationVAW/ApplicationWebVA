@@ -96,12 +96,24 @@ public class Commande {
 				int qteStock = lc.getProduit().getQuantiteStock();
 				int qteDemande = lc.getQte();
 				if(qteStock>qteDemande){
+					
 					System.out.println("le produit est disponible ");
 				}
 				else {System.out.println("quantité insuffisante ");}
 			}
 				}
+		
+		public boolean verifCommande(LigneCommande lc){
+				int qteStock = lc.getProduit().getQuantiteStock();
+				int qteDemande = lc.getQte();
+				if(qteStock>qteDemande){
+				return true;}
+				else {return false;}				
+			}
+			
+		
+				}
 	
 
 	
-}
+
