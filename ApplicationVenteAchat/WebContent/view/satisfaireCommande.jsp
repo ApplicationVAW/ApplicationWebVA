@@ -107,6 +107,7 @@
    Commande commande = new Commande();
    Commande com = commande.getCommande(code);
    String nomClient= com.getClient().getNom();
+   String src="";
    // out.println("aaaaaa"+code);
     //Commande com = commande.getCommande(code);
     
@@ -139,14 +140,13 @@
                             <td>nom produit</td>
                             <td>quantite</td>
                             <td>disponibilité</td>
-                            
                         </tr>
                         </thead>
     <% 
 		Iterator<LigneCommande> it = com.getLignes().iterator();
 		while (it.hasNext()){
-			LigneCommande lc = it.next(); 
-			
+			LigneCommande lc = it.next();
+			if (commande.verifCommande(lc)){src="/ApplicationVenteAchat/view/image/Ok.png";}else{src="/ApplicationVenteAchat/view/image/No.png";}	
 			%>
 			
                         <tbody>
@@ -154,17 +154,15 @@
                             <td><%= lc.getProduit().getCodeProduit()%></td>
                             <td><%= lc.getProduit().getNom() %></td>
                             <td><%= lc.getQte() %></td>  
-                            <td><%
-                            if (com.verifCommande(lc)){%><h1>dispo</h1><%}
-                            else%><h1>dispo</h1></td>    
+                             <td><img src=<%= src %>></td>   
                         </tr>
                        <% } %>
                         </tbody>
                     </table>
         <div class="entry form-inline">
-          <form method="post"  action="/ApplicationVenteAchat/AjoutCommande2" >
-        
-             <button id="send" type="submit" class="btn btn-success" >Ajouter à la Commande</button>
+          <form method="post"  action="/ApplicationVenteAchat/AfficherFacture">
+           
+             <button id="send" type="submit" class="btn btn-success" >Facture</button>
              <input type="hidden"  name="codeCommande" value= "<%=code %>" >
               
           </form>

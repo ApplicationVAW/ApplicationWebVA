@@ -107,7 +107,7 @@
    Commande commande = new Commande();
    Commande com = commande.getCommande(code);
    String nomClient= com.getClient().getNom();
-   String src="";
+  
    // out.println("aaaaaa"+code);
     //Commande com = commande.getCommande(code);
     
@@ -139,14 +139,14 @@
                             <td>code produit</td>
                             <td>nom produit</td>
                             <td>quantite</td>
-                            <td>disponibilité</td>
+                          
                         </tr>
                         </thead>
     <% 
 		Iterator<LigneCommande> it = com.getLignes().iterator();
 		while (it.hasNext()){
 			LigneCommande lc = it.next();
-			if (commande.verifCommande(lc)){src="dispo";}else{src="indispo";}	
+				
 			%>
 			
                         <tbody>
@@ -154,7 +154,7 @@
                             <td><%= lc.getProduit().getCodeProduit()%></td>
                             <td><%= lc.getProduit().getNom() %></td>
                             <td><%= lc.getQte() %></td>  
-                             <td><%= src %></td>   
+                               
                         </tr>
                        <% } %>
                         </tbody>
@@ -172,7 +172,15 @@
                     <input type="number" class="form-control" name="qte" placeholder="...">
                    <span class="input-group-addon"></span>
              </div>
-             <button id="send" type="submit" class="btn btn-success" >Ajouter à la Commande</button>
+             <button id="send" type="submit" class="btn btn-default" >Ajouter à la Commande</button>
+             <input type="hidden"  name="codeCommande" value= "<%=code %>" >
+              <br>
+          </form>
+          
+          <form method="post" action="/ApplicationVenteAchat/satisCommande">
+             <button id="envoyer" type="submit" class="btn btn-success" >Passer la Commande</button>
+             <br>
+             <br>
              <input type="hidden"  name="codeCommande" value= "<%=code %>" >
               
           </form>
