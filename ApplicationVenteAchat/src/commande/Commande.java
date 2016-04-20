@@ -16,7 +16,6 @@ public class Commande {
 	private Date dateCommande;
     private Set<LigneCommande> lignes;
     private Client client;
-    private Vente vente;
     //constructeurs
 	public Commande() {}
 	
@@ -55,13 +54,6 @@ public class Commande {
 		this.client = client;
 	}
 	
-	public Vente getVente() {
-		return vente;
-	}
-
-	public void setVente(Vente vente) {
-		this.vente = vente;
-	}
 	
 	// methodes de mappage 
 	

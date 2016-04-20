@@ -11,6 +11,6 @@
       <id name="codeVente" column="CODE_VENTE">
          <generator class="native"/>
       </id>
-      <one-to-one name="commande" class="commande.Commande"/>
+      <many-to-one name="Commande" class="commande.Commande" column="CODE_COMMANDE" unique="true" cascade="all"/>
    </class>
 </hibernate-mapping>

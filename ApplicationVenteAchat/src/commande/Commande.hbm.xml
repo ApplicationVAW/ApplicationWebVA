@@ -22,6 +22,5 @@
         <many-to-one name="client" class="client.Client" fetch="select" update="true">
             <column name="CODE_CLIENT" not-null="true" />
         </many-to-one> 
-       <one-to-one name="vente" foreign-key="codeCommande" class="vente.Vente"/>
    </class>
 </hibernate-mapping>
