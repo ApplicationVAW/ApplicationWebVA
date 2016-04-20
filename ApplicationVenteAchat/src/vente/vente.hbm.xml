@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="vente.Vente" table="VENTE">
+      <meta attribute="class-description">
+       Class contains ventes
+      </meta>
+      <id name="codeVente" column="CODE_VENTE">
+         <generator class="native"/>
+      </id>
+      <one-to-one name="commande" class="commande.Commande"/>
+   </class>
+</hibernate-mapping>
