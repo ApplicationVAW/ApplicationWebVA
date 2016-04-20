@@ -24,6 +24,22 @@
      <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.6/bootstrap-growl.min.js"></script>
      
 
+
+<script type="text/javascript">
+
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
+</script>
+
+
 </head>
 
 <body>
@@ -95,9 +111,9 @@
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="#">
-                    <i class="fa fa-globe fa-lg"></i> Users
+                    <i class="fa fa-globe fa-lg"></i> Facture
                 </a>
             </li>
         </ul>
@@ -115,32 +131,33 @@
 
         </ul>
     </div>
-<div class="partieDroite" style="width:700px;">
+<div  class="partieDroite" style="width:700px;">
+<div id="imprimer">
 
  <header class="clearfix">
       <div id="logo">
         <img src="${pageContext.request.contextPath}/view/image/logo.png">
       </div>
       <div id="company">
-        <h2 class="name">Company Name</h2>
-        <div>455 Foggy Heights, AZ 85004, US</div>
-        <div>(602) 519-0450</div>
-        <div><a href="mailto:company@example.com">company@example.com</a></div>
+        <h2 class="name">nom societé</h2>
+        <div>adresse du societé</div>
+        <div>numero de telephone</div>
+        <div><a href="mailto:company@example.com">email de la societé</a></div>
       </div>
       
     </header>
     <main>
       <div id="details" class="clearfix">
         <div id="client">
-          <div class="to">INVOICE TO:</div>
-          <h2 class="name">John Doe</h2>
-          <div class="address">796 Silver Harbour, TX 79273, US</div>
-          <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+          <div class="to">FACTURE :</div>
+          <h2 class="name">nom du client</h2>
+          <div class="address">adresse du client</div>
+          <div class="email"><a href="mailto:john@example.com">mail du client</a></div>
         </div>
         <div id="invoice">
           <h1>INVOICE 3-2-1</h1>
-          <div class="date">Date of Invoice: 01/06/2014</div>
-          <div class="date">Due Date: 30/06/2014</div>
+          <div class="date">Date de Facture: 01/06/2014</div>
+          <div class="date">Date d'échéance: 30/06/2014</div>
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
@@ -179,7 +196,7 @@
         <tfoot>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">SUBTOTAL</td>
+            <td colspan="2">SOUS-TOTAL</td>
             <td>$5,200.00</td>
           </tr>
           <tr>
@@ -189,7 +206,7 @@
           </tr>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">GRAND TOTAL</td>
+            <td colspan="2">SOMME FINALE</td>
             <td>$6,500.00</td>
           </tr>
         </tfoot>
@@ -200,12 +217,12 @@
         <div class="notice">Une charge financière de 1,5% sera faite sur les soldes impayés après 30 jours.</div>
       </div>
     </main>
-
+  </div>
     <br>
     <br>
    
     
-    <button class="btn btn-danger" onclick="window.print();"><i class="fa fa-print"></i> Imprimer facture</button>
+    <button class="btn btn-danger" onclick="printDiv('imprimer');"><i class="fa fa-print"></i> Imprimer facture</button>
      <br>
     <br>
     </div>
