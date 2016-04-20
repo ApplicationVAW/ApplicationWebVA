@@ -24,7 +24,7 @@
      <mapping resource="client/Client.hbm.xml"/>
      <mapping resource="commande/Commande.hbm.xml"/>
      <mapping resource="commande/LigneCommande.hbm.xml"/>
-     
+     <mapping resource="vente/Vente.hbm.xml"/>
   
   </session-factory>
 </hibernate-configuration>

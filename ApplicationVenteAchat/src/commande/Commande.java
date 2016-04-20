@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import client.Client;
 import produit.Produit;
 import util.HibernateUtil;
+import vente.Vente;
 
 
 public class Commande {
@@ -15,6 +16,7 @@ public class Commande {
 	private Date dateCommande;
     private Set<LigneCommande> lignes;
     private Client client;
+    private Vente vente;
     //constructeurs
 	public Commande() {}
 	
@@ -52,6 +54,15 @@ public class Commande {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	
+	public Vente getVente() {
+		return vente;
+	}
+
+	public void setVente(Vente vente) {
+		this.vente = vente;
+	}
+	
 	// methodes de mappage 
 	
 // ajouter une commande	
@@ -86,9 +97,9 @@ public class Commande {
 	}	
 		
 		
-	//retourner une commande
+	
 		public void verifierCommande(Long codeCom){
-			//com.getLignes();
+			
 			Commande com = getCommande(1L);
 			Iterator<LigneCommande> it = com.getLignes().iterator();
 			while (it.hasNext()){
@@ -110,6 +121,8 @@ public class Commande {
 				return true;}
 				else {return false;}				
 			}
+
+		
 			
 		
 				}
