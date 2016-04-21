@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import commande.Commande;
+import vente.Vente;
+
 /**
- * Servlet implementation class satisCommande
+ * Servlet implementation class AfficherFacture
  */
-@WebServlet("/satisCommande")
-public class satisCommande extends HttpServlet {
+@WebServlet("/AfficherFacture")
+public class AfficherFacture extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public satisCommande() {
+    public AfficherFacture() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,16 +38,21 @@ public class satisCommande extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		String codeCommande = (String)request.getParameter("codeCommande");
-		Long code = Long.parseLong(codeCommande);
-		request.setAttribute("codeCommande", code);
-        RequestDispatcher disp = request.getRequestDispatcher("/view/satisfaireCommande.jsp"); 
-        disp.forward(request, response);
+	
+		Long codeCommande = Long.parseLong(request.getParameter("codeCommande"));
+		//Commande com = new Commande();
+		//Commande commande = com.getCommande(codeCommande);
+		//Vente vente = new Vente();
+		//Vente v = new Vente();
+		//vente.setCommande(commande);
+		//v.addVente(vente, commande);
+		//Long codeVente = vente.getCodeVente();
+		RequestDispatcher  disp = request.getRequestDispatcher("/view/facture.jsp");
+		request.setAttribute("vente", codeCommande);
+		disp.forward(request, response);
+	
 	}
 
 }

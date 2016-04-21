@@ -65,8 +65,8 @@ function printDiv(divName) {
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="#">Ajouter commande</a></li>
-                <li><a href="#">Modifier commande</a></li>
+                <li class="#"><a href="${pageContext.request.contextPath}/view/ajoutCommande1.jsp">Ajouter commande</a></li>
+                 <li><a href="#">Modifier commande</a></li>
                 <li><a href="#">Supprimer commande</a></li>
                 <li><a href="#">Chercher commande</a></li>
                 <li><a href="#">Afficher tous commande</a></li>
@@ -76,11 +76,12 @@ function printDiv(divName) {
                     <a href="#"><i class="fa fa-globe fa-lg"></i> Produit <span class="arrow"></span></a>
             </li>
                 <ul class="sub-menu collapse" id="produit">
-                <li><a href="#">Ajouter produit</a></li>
-                <li><a href="#">Modifier produit</a></li>
-                <li><a href="#">Supprimer produit</a></li>
-                <li><a href="#">chercher produits</a></li>
-                <li><a href="#">Afficher Produits</a></li>
+                 <li><a href="${pageContext.request.contextPath}/view/ajoutProduit.jsp">Ajouter produit</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/view/ModifProduit.jsp">Modifier produit</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/SupprProduit.jsp">Supprimer produit</a></li>
+                
+                <li><a href="${pageContext.request.contextPath}/view/listeProduit.jsp">Afficher Produits</a></li>
+            
             </ul>
 
 
@@ -90,7 +91,7 @@ function printDiv(divName) {
             <ul class="sub-menu collapse" id="service">
                 <li><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
-                <li><a href="#">Modifier client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Chercher client</a></li>
             </ul>
 
@@ -150,14 +151,22 @@ function printDiv(divName) {
       <div id="details" class="clearfix">
         <div id="client">
           <div class="to">FACTURE :</div>
-          <h2 class="name">nom du client</h2>
-          <div class="address">adresse du client</div>
-          <div class="email"><a href="mailto:john@example.com">mail du client</a></div>
+          <%@ page import="produit.Produit, vente.Vente, commande.Commande, commande.LigneCommande, conception.AjoutCommande2, client.Client, java.util.Iterator, java.util.*" %>
+          <% Long codeCommande = (Long)request.getAttribute("vente");
+             Commande com = new Commande();
+             Commande commande = com.getCommande(codeCommande);
+             Client client = (Client)commande.getClient();
+             Vente vente = new Vente();
+          %>
+          
+          <h2 class="name"><%= client.getNom() %> <%= client.getPrenom() %></h2>
+          <div class="address"><%= client.getAdresse() %></div>
+          <div class="email"><a href="mailto:john@example.com"><%= client.getEmail() %></a></div>
         </div>
         <div id="invoice">
           <h1>INVOICE 3-2-1</h1>
-          <div class="date">Date de Facture: 01/06/2014</div>
-          <div class="date">Date d'échéance: 30/06/2014</div>
+          <div class="date">Date de Facture: <%= new Date() %></div>
+          <div class="date">Date d'échéance: <%= new Date() %></div>
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
@@ -171,43 +180,41 @@ function printDiv(divName) {
           </tr>
         </thead>
         <tbody>
+        
+        <% Set<LigneCommande> liste = commande.getLignes();
+        LigneCommande l = new LigneCommande();
+        
+        for(LigneCommande ligne: liste){
+        	boolean etat = commande.verifCommande(ligne);
+           if(etat){
+        %>
+        
           <tr>
-            <td class="no">01</td>
-            <td class="desc"><h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">30</td>
-            <td class="total">$1,200.00</td>
+            <td class="no"><%= ligne.getProduit().getCodeProduit() %></td>
+            <td class="desc"><h3><%= ligne.getProduit().getNom() %></h3><%= ligne.getProduit().getDescription() %></td>
+            <td class="unit"><%= ligne.getProduit().getPrix() %></td>
+            <td class="qty"><%= ligne.getQte() %></td>
+            <td class="total"><%= l.calculerPrixProduit(ligne) %> DT</td>
           </tr>
-          <tr>
-            <td class="no">02</td>
-            <td class="desc"><h3>Website Development</h3>Developing a Content Management System-based Website</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">80</td>
-            <td class="total">$3,200.00</td>
-          </tr>
-          <tr>
-            <td class="no">03</td>
-            <td class="desc"><h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">20</td>
-            <td class="total">$800.00</td>
-          </tr>
+          
+        <%}
+           } %>
         </tbody>
         <tfoot>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">SOUS-TOTAL</td>
-            <td>$5,200.00</td>
+            <td><%= vente.calculerMontantTotal(commande) %> Dinars</td>
           </tr>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">TAX 25%</td>
-            <td>$1,300.00</td>
+            <td><%= vente.calculerMontantTotal(commande)*(25/100) %></td>
           </tr>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">SOMME FINALE</td>
-            <td>$6,500.00</td>
+            <td><%= vente.calculerMontantTotal(commande) + vente.calculerMontantTotal(commande)*(25/100) %></td>
           </tr>
         </tfoot>
       </table>

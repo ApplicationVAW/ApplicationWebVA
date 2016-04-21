@@ -107,7 +107,7 @@
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Commande <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
-                <li class="#"><a href="#">Ajouter commande</a></li>
+                <li class="#"><a href="${pageContext.request.contextPath}/view/ajoutCommande1.jsp">Ajouter commande</a></li>
                 <li><a href="#">Modifier commande</a></li>
                 <li><a href="#">Supprimer commande</a></li>
                 <li><a href="#">Chercher commande</a></li>
@@ -121,7 +121,7 @@
                 <li class="active"><a href="${pageContext.request.contextPath}/view/ajoutProduit.jsp">Ajouter produit</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/ModifProduit.jsp">Modifier produit</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprProduit.jsp">Supprimer produit</a></li>
-                <li><a href="#">chercher produits</a></li>
+                
                 <li><a href="${pageContext.request.contextPath}/view/listeProduit.jsp">Afficher Produits</a></li>
             </ul>
 
@@ -130,10 +130,10 @@
                 <a href="#"><i class="fa fa-users fa-lg"></i> Client <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="service">
-                <li ><a href="#">Ajouter client</a></li>
+                <li ><a href="${pageContext.request.contextPath}/view/ajoutClient.jsp">Ajouter client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprClient.jsp">Supprimer client</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/ModifClient.jsp">Modifier client</a></li>
-                <li><a href="#">Chercher client</a></li>
+                <li><a href="${pageContext.request.contextPath}/view/listeClient.jsp">Afficher client</a></li>
             </ul>
 
 
@@ -155,7 +155,7 @@
 
             <li>
                 <a href="#">
-                    <i class="fa fa-globe fa-lg"></i> Users
+                    <i class="fa fa-globe fa-lg"></i> Facture
                 </a>
             </li>
         </ul>

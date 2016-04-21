@@ -8,47 +8,57 @@ public class LigneCommande {
 	private Long idLigne;
 	private Produit produit;
 	private int qte;
-    private Commande commande;
-	//constructeurs
+	private Commande commande;
+
+	// constructeurs
 	public LigneCommande(Produit produit, int qte) {
 		super();
 		this.produit = produit;
 		this.qte = qte;
 	}
+
 	public LigneCommande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	//getters and setters
+
+	// getters and setters
 	public Long getIdLigne() {
 		return idLigne;
 	}
+
 	public void setIdLigne(Long idLigne) {
 		this.idLigne = idLigne;
 	}
+
 	public Produit getProduit() {
 		return produit;
 	}
+
 	public void setProduit(Produit produit) {
 		this.produit = produit;
 	}
+
 	public int getQte() {
 		return qte;
 	}
+
 	public void setQte(int qte) {
 		this.qte = qte;
 	}
+
 	public Commande getCommande() {
 		return commande;
 	}
+
 	public void setCommande(Commande commande) {
 		this.commande = commande;
 	}
-	
-	//methodes de mappage 
-	
-// ajouter une ligne de commande
-	public void addLigneCommande(LigneCommande l, Commande c){
+
+	// methodes de mappage
+
+	// ajouter une ligne de commande
+	public void addLigneCommande(LigneCommande l, Commande c) {
 		Session session = HibernateUtil.getSession().getCurrentSession();
 		session.beginTransaction();
 		l.setCommande(c);
@@ -56,12 +66,21 @@ public class LigneCommande {
 		session.getTransaction().commit();
 	}
 
-// afficher une ligne pour le test 
+	// afficher une ligne pour le test
 	public void show() {
 		// TODO Auto-generated method stub
-		System.out.println("code produit "+this.produit.getCodeProduit()+" - "+ this.produit.getNom()+" - " + this.qte);	
+		System.out.println(
+				"code produit " + this.produit.getCodeProduit() + " - " + this.produit.getNom() + " - " + this.qte);
 	}
 	
-	
+	//methode de calcule de prix
+		public Double calculerPrixProduit(LigneCommande lc){
+			Double prix = 0.0 ;
+			int quantite = lc.getQte();
+			Double prixUnitaire = lc.getProduit().getPrix();
+			prix = quantite * prixUnitaire ;
+			
+			return prix ;
+		}
 
 }

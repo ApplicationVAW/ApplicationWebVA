@@ -144,7 +144,7 @@ try{
                  <li><a href="${pageContext.request.contextPath}/view/ajoutProduit.jsp">Ajouter produit</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/ModifProduit.jsp">Modifier produit</a></li>
                 <li><a href="${pageContext.request.contextPath}/view/SupprProduit.jsp">Supprimer produit</a></li>
-                <li><a href="#">chercher produits</a></li>
+                
                 <li><a href="${pageContext.request.contextPath}/view/listeProduit.jsp">Afficher Produits</a></li>
             
             </ul>
@@ -179,7 +179,7 @@ try{
 
             <li>
                 <a href="#">
-                    <i class="fa fa-globe fa-lg"></i> Users
+                    <i class="fa fa-globe fa-lg"></i> Facture
                 </a>
             </li>
         </ul>
